@@ -168,3 +168,6 @@ CORS_ORIGIN_REGEX_WHITELIST = (
 )
 
 SITE_ID = 1
+
+
+AUTH_PROFILE_MODULE = 'datasets.UserProfile'
