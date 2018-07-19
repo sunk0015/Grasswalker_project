@@ -3,11 +3,13 @@
  */
 import React, { Component } from 'react';
 import '../../App.css';
-
+import Dataset from '../Dataset/Dataset.js'
 class Shared extends Component {
     render (){
         return (
-            <div className="jumbotron"> Shared </div>
+            <div className="container">
+                <Dataset/>
+            </div>
         )
     }
 }

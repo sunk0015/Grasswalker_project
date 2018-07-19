@@ -11,14 +11,16 @@ def write_file(file_name,n,m):
     data_set = generate(n,m)
     np.savetxt(file_name, data_set, delimiter=",")
 
-write_file('data_set0.csv',100,100)
-write_file('data_set1.csv',100,100)
-write_file('data_set2.csv',100,100)
-write_file('data_set3.csv',100,100)
-write_file('data_set4.csv',100,100)
-write_file('data_set5.csv',100,100)
-write_file('data_set6.csv',100,100)
-write_file('data_set7.csv',100,100)
-write_file('data_set8.csv',100,100)
-write_file('data_set9.csv',100,100)
-write_file('data_set10.csv',100,100)
+
+def write_datasets(dir,folder_list,num_datasets,size):
+    counter=0
+    for folder in folder_list:
+        for i in range(num_datasets):
+            file_name = dir+folder+'_D'+str(counter)+'.csv'
+            write_file(file_name,size,size)
+            counter+=1
+        counter = 0
+
+path = '/Users/Sai/Documents/proj/Grasswalker_project/Grasswalker/test_data/'
+folder_list = ['MIDF1','MICF1','WIBF2','WIBF1','MNAF3','MNAF2','MNAF1']
+write_datasets(path,folder_list,7,10)

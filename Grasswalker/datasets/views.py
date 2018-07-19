@@ -1,16 +1,54 @@
 from rest_framework import generics
 from rest_framework.permissions import IsAuthenticated
-from datasets.models import Dataset
+from datasets.models import Lab, Dataset, Folder
+from django.contrib.auth.models import User
 from . import serializers
 
+"""Generic views accessible across app (i.e. no filters)"""
+class UserList(generics.ListCreateAPIView):
+    permissions_class = (IsAuthenticated)
+    queryset = User.objects.all()
+    serializer_class = serializers.UserSerializer
 
-class ListDataset(generics.ListCreateAPIView):
+class LabList(generics.ListCreateAPIView):
+    permissions_class=(IsAuthenticated)
+    queryset = Lab.objects.all()
+    serializer_class = serializers.LabSerializer
+
+
+"""Lab based views (i.e. filtered by user's Lab)"""
+class UserPrivateLab(generics.ListAPIView):
+    """gets user's lab"""
+    permissions_class=(IsAuthenticated)
+    queryset = Lab.objects.all()
+    serializer_class = serializers.LabSerializer
+
+    def get_queryset(self):
+        user = self.request.user
+        lab = user.profile.lab
+        return [lab]
+
+class LabPrivateDatasetList(generics.ListCreateAPIView):
     permissions_class=(IsAuthenticated)
     queryset = Dataset.objects.all()
     serializer_class = serializers.DatasetSerializer
 
+    def get_queryset(self):
+        user = self.request.user
+        lab = user.profile.lab
+        folders = Folder.objects.filter(owner=lab)
+        queryset = []
+        for folder in folders:
+            queryset += Dataset.objects.filter(folder=folder)
+        return queryset
 
-class DetailDataset(generics.RetrieveUpdateDestroyAPIView):
+
+class LabPrivateFolderList(generics.ListCreateAPIView):
     permissions_class=(IsAuthenticated)
-    queryset = Dataset.objects.all()
-    serializer_class = serializers.DatasetSerializer
+    queryset = Folder.objects.all()
+    serializer_class = serializers.FolderSerializer
+
+    def get_queryset(self):
+        user = self.request.user
+        lab = user.profile.lab
+        return Folder.objects.filter(owner=lab)

@@ -15,7 +15,7 @@ class Search extends Component {
         event.preventDefault();
         var token = window.localStorage.getItem('key');
         var auth = 'Token '+token;
-        fetch('http://localhost:8000/api/list/',{
+        fetch('http://localhost:8000/api/datasetlist/',{
             method: 'GET',
             headers: {
                 'Authorization' : auth

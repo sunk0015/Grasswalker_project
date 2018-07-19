@@ -1,0 +1,19 @@
+.leftdiv {
+    border-right: 1px solid blue;
+}
+
+label {
+    text-align: left;
+}
+p {
+    text-align:left;
+}
+
+.newDataset{
+    width: 100%;
+    margin-top: 20px;
+}
+
+/*div {*/
+    /*border-right: double;*/
+/*}*/

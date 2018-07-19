@@ -15,27 +15,35 @@ import Shared from './components/Shared/Shared.js';
 import Upload from './components/Upload/Upload.js';
 import Navigation from './components/Navigation/Navigation.js'
 import Login from './components/Login/Login.js';
-import Content from './components/Content/Content.js'
+import Logout from './components/Logout/Logout.js';
+import Content from './components/Content/Content.js';
+import Lab from './components/Lab/Lab.js';
 
 
 class App extends Component {
+    constructor(props){
+        super(props);
+    }
+
   render() {
     return (
       <Router>
         <div className="App">
-            <div className="page-container"><Navigation/> 
+            <div className="page-container">
+            <Navigation/> 
             <Route exact path="/" component={Search} /> 
             <Route exact path="/search" component={Search} /> 
             <Route exact path="/shared" component={Shared} /> 
             <Route exact path="/upload" component={Upload} /> 
             <Route exact path="/login" component={Login} /> 
+            <Route exact path="/logout" component={Logout} /> 
+            <Route exact path="/lab" component={Lab} /> 
           </div>
         </div>
       </Router>
     );
   }
 }
-export default App;
 
 class Home extends Component {
     render (){
@@ -56,3 +64,5 @@ class Home extends Component {
         )
     }
 }
+
+export default App;

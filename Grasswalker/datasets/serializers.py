@@ -1,11 +1,16 @@
 from django.contrib.auth.models import User
-from datasets.models import Folder, Dataset
+from datasets.models import Lab, Folder, Dataset
 from rest_framework import serializers
 
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
+        exclude = ()
+
+class LabSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Lab
         exclude = ()
 
 
