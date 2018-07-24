@@ -12,6 +12,7 @@ class Login extends Component{
     constructor(props){
         super(props);
         this.submitLogin = this.submitLogin.bind(this);
+
     }
 
     submitLogin(event){
@@ -23,7 +24,8 @@ class Login extends Component{
         console.log(password);
         data.append('username', username);
         data.append('password', password);
-        fetch('http://localhost:8000/api/rest_auth/login/',{
+        var server = window.localStorage.getItem('server');
+        fetch(server+'/api/rest_auth/login/',{
             method: 'POST',
             body: data
         })
@@ -46,8 +48,8 @@ class Login extends Component{
             }, 1000);
             var token = window.localStorage.getItem('key');
             var auth = 'Token '+token;
-            console.log("got here");
-            fetch('http://localhost:8000/api/userlab/',{
+            var server = window.localStorage.getItem('server');
+            fetch(server+'/api/userlab/',{
                 method: 'GET',
                 headers: {
                     'Authorization' : auth

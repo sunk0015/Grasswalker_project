@@ -18,7 +18,8 @@ class Lab extends Component {
     componentDidMount(){
         var token = window.localStorage.getItem('key');
         var auth = 'Token '+token;
-        fetch('http://localhost:8000/api/projectlist/',{
+        var server = window.localStorage.getItem('server');
+        fetch(server+'/api/projectlist/',{
             method: 'GET',
             headers: {
                 'Authorization' : auth

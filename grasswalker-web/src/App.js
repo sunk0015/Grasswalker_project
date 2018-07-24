@@ -23,6 +23,8 @@ import Lab from './components/Lab/Lab.js';
 class App extends Component {
     constructor(props){
         super(props);
+        // window.localStorage.setItem('server','http://ec2-34-220-195-209.us-west-2.compute.amazonaws.com:8000');
+        window.localStorage.setItem('server','http://localhost:8000');
     }
 
   render() {

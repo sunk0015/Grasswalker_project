@@ -95,7 +95,8 @@ class ExistingProject extends Component {
     componentDidMount(){
         var token = window.localStorage.getItem('key');
         var auth = 'Token '+token;
-        fetch('http://localhost:8000/api/folderlist/',{
+        var server = window.localStorage.getItem('server');
+        fetch(server+'/api/folderlist/',{
             method: 'GET',
             headers: {
                 'Authorization' : auth
@@ -146,7 +147,8 @@ class NewProject extends Component {
     componentDidMount(){
         var token = window.localStorage.getItem('key');
         var auth = 'Token '+token;
-        fetch('http://localhost:8000/api/userlist/',{
+        var server = window.localStorage.getItem('server');
+        fetch(server+'/api/userlist/',{
             method: 'GET',
             headers: {
                 'Authorization' : auth

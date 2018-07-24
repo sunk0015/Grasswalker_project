@@ -13,7 +13,8 @@ class Logout extends Component{
         var token = window.localStorage.getItem('key');
         var auth = 'Token '+token;
         var data= new FormData();
-        fetch('http://localhost:8000/api/rest_auth/logout/',{
+        var server = window.localStorage.getItem('server');
+        fetch(server+'/api/rest_auth/logout/',{
             method: 'POST',
             headers: {
                 'Authorization' : auth
