@@ -59,7 +59,11 @@ class Lab extends Component {
                         </ul>
                     </div>
                     <div className="col-lg-10 col-md-10 col-sm-5 main">
-                        {this.state.projects}
+                        <div className="parent-wrapper">
+                            <div className="parent">
+                                        {this.state.projects}
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -75,13 +79,12 @@ class Project extends Component{
     }
     render(){
         return(
-            <div className="card" styles="width: 12rem;">
-              <div className="card-body">
-                <h5 className="card-title">{this.props.proj.name}</h5>
-                <p className="card-text">{this.props.proj.description}</p>
-                <a href="#" className="btn btn-primary">Explore Datasets</a>
-                <span className="glyphicon glyphicon-plus"></span>
-              </div>
+            <div className="folder">
+                <div className="folder-content">
+                    <h5>{this.props.proj.name}</h5>
+                    <p>{this.props.proj.description}</p>
+                    <a href="#">Explore Datasets</a>
+                </div>
             </div>
         )
     }

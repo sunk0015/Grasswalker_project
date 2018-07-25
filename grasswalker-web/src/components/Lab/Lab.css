@@ -18,3 +18,45 @@
     display:inline-block;
     margin-bottom:10px;
 }
+
+.folder {
+    width: 250px;
+    height: 200px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    position: relative;
+    background-color: tan;
+    border-radius: 0 6px 6px 6px;
+    box-shadow: 4px 4px 7px rgba(0, 0, 0, 0.59);
+
+}
+
+.folder:before {
+    content: '';
+    width: 50%;
+    height: 12px;
+    border-radius: 0 20px 0 0;
+    background-color: tan;
+    position: absolute;
+    top: -12px;
+    left: 0px;
+}
+
+.folder-content{
+    padding-left:5%;
+    padding-right:5%;
+    padding-top:5%;
+    color:white;
+}
+
+.parent-wrapper {
+  height: 100%;
+  width: 100%;
+}
+.parent {
+  display: flex;
+  flex-wrap: wrap;
+}
+
