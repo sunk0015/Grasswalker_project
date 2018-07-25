@@ -25,7 +25,7 @@ class Logout extends Component{
         .catch(error => {
               window.setTimeout(function() {
                 window.location.href = "/login/";
-             }, 5000);
+             }, 2000);
         })
         .then(response => {
             console.log(this);
