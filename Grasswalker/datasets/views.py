@@ -3,6 +3,8 @@ from rest_framework.permissions import IsAuthenticated
 from datasets.models import Lab, Dataset, Folder
 from django.contrib.auth.models import User
 from . import serializers
+from rest_framework.response import Response
+from rest_framework import status
 
 """Generic views accessible across app (i.e. no filters)"""
 class UserList(generics.ListCreateAPIView):
@@ -51,7 +53,11 @@ class LabPrivateFolderList(generics.ListCreateAPIView):
     def get_queryset(self):
         user = self.request.user
         lab = user.profile.lab
-        return Folder.objects.filter(owner=lab)
+        return Folder.objects.filter(owner=lab).filter(parent=None)
+
+    def perform_create(self,serializer):
+        return serializer.save(owner=self.request.user.profile.lab)
+
 
 class LabPrivateProjectList(generics.ListCreateAPIView):
     permissions_class=(IsAuthenticated)
@@ -62,3 +68,23 @@ class LabPrivateProjectList(generics.ListCreateAPIView):
         user = self.request.user
         lab = user.profile.lab
         return Folder.objects.filter(owner=lab).filter(parent=None)
+
+    def perform_create(self,serializer):
+        return serializer.save(owner=self.request.user.profile.lab)
+
+class LabPrivateDelete(generics.DestroyAPIView):
+    permissions_class=(IsAuthenticated)
+
+    def destroy(self, request, *args, **kwargs):
+        pk = request.POST['projectid']
+        instance = Folder.objects.filter(id=pk)
+        self.perform_destroy(instance)
+        return Response(status=status.HTTP_204_NO_CONTENT)
+
+    def perform_destroy(self, instance):
+        print("pk")
+        instance.delete()
+
+
+
+

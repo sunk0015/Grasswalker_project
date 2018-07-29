@@ -7,6 +7,7 @@ urlpatterns = [
     url(r'^userlab/$', views.UserPrivateLab.as_view()),
     url(r'^datasetlist/$', views.LabPrivateDatasetList.as_view()),
     url(r'^projectlist/$', views.LabPrivateProjectList.as_view()),
+    url(r'^projectlist/delete/$', views.LabPrivateDelete.as_view()),
     url(r'^folderlist/$', views.LabPrivateFolderList.as_view()),
     url(r'^rest_auth/', include('rest_auth.urls')),
     url(r'^rest_auth/registration/', include('rest_auth.registration.urls')),

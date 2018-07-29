@@ -37,10 +37,20 @@ class LabModelSerializer(serializers.ModelSerializer):
 class FolderModelSerializer(serializers.ModelSerializer):
     owner = LabFilteredPrimaryKeyRelatedField(queryset=Lab.objects,required=False)
     parent = LabFilteredPrimaryKeyRelatedField(queryset=Folder.objects,required=False)
+    name = serializers.CharField(max_length=100,allow_blank=False)
+    description = serializers.CharField(max_length=5000,allow_blank=False)
     class Meta:
         model = Folder
         exclude = ()
 
+    def create(self,validated_data):
+        lab = self.context['view'].request.user.profile.lab
+        if 'parent' not in validated_data:
+            # Project instance not Folder instance
+            validated_data['parent']=None
+        print(validated_data)
+        validated_data['owner'] = lab
+        return Folder.objects.create(**validated_data)
 
 class DatasetModelSerializer(serializers.ModelSerializer):
     folder = LabFilteredPrimaryKeyRelatedField(queryset=Folder.objects,required=False)
@@ -48,3 +58,6 @@ class DatasetModelSerializer(serializers.ModelSerializer):
         model = Dataset
         exclude = ()
 
+    def create(self, validated_data):
+        print(validated_data)
+        return Dataset.objects.create(**validated_data)
