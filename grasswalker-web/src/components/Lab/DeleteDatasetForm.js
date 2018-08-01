@@ -1,5 +1,5 @@
 /**
- * Created by Sai on 7/28/18.
+ * Created by Sai on 7/31/18.
  */
 import React, { Component } from 'react';
 import '../../App.css';
@@ -9,11 +9,10 @@ import {
 } from 'react-router-dom';
 import {NotificationContainer, NotificationManager} from 'react-notifications';
 
-
-class DeleteProjectForm extends Component{
+class DeleteDatasetForm extends Component{
     constructor(props){
         super(props);
-        this.deleteProject = this.deleteProject.bind(this);
+        this.deleteDataset = this.deleteDataset.bind(this);
     }
     createNotification = (type,msg,title) => {
     if(type=='success'){
@@ -26,18 +25,18 @@ class DeleteProjectForm extends Component{
     }
   };
 
-    deleteProject(event){
+    deleteDataset(event){
         event.preventDefault();
         var token = window.localStorage.getItem('key');
         var auth = 'Token '+token;
         var server = window.localStorage.getItem('server');
         var data= new FormData();
-        var id = event.target.projectname.value;
-        var select = event.target.projectname;
+        var id = event.target.dataset.value;
+        var select = event.target.dataset;
         var selectedIndex = select.selectedIndex;
-        var name = event.target.projectname.options[selectedIndex].text;
-        data.append('projectid',id);
-        fetch(server+'/api/projectlist/delete/',{
+        var name = event.target.dataset.options[selectedIndex].text;
+        data.append('datasetid',id);
+        fetch(server+'/api/datasetlist/delete/',{
             method: 'DELETE',
             headers: {
                 'Authorization' : auth
@@ -47,18 +46,19 @@ class DeleteProjectForm extends Component{
         .then(response => {
             if (response.status==204){
                 console.log(response);
-                this.createNotification('success','Deleted Project: '+name,'Success');
+                this.createNotification('success','Deleted Dataset: '+name,'Success');
                 this.props.closeModal();
             }
             else{
                 console.log(response);
-                this.createNotification('error','Failed to delete Project '+name,'Failed');
+                this.createNotification('error','Failed to delete Dataset '+name,'Failed');
                 this.props.closeModal();
                 return;
             }
         });
     }
     render(){
+        console.log("DELETE");
         console.log(this.props);
         return(
         <div className={this.props.modalState} tabIndex="-1" role="dialog">
@@ -71,13 +71,13 @@ class DeleteProjectForm extends Component{
                           <span aria-hidden="true">&times;</span>
                         </button>
                       </div>
-                        <form onSubmit={this.deleteProject}>
+                        <form onSubmit={this.deleteDataset}>
                       <div className="modal-body">
                             <div className="container">
                                 <div className="row">
-                                    <label> Project: <br/>
-                                        <select id="projectname" name="projectname">
-                                            {this.props.projects}
+                                    <label> Dataset: <br/>
+                                        <select id="dataset" name="dataset">
+                                            {this.props.modalContent.delete_options}
                                         </select>
                                     </label>
                                 </div>
@@ -95,4 +95,4 @@ class DeleteProjectForm extends Component{
     }
 }
 
-export default DeleteProjectForm;
+export default DeleteDatasetForm;

@@ -11,7 +11,7 @@
 }
 
 .list-group-item{
-    background-color:#ffffe6 !important;
+    background-color:#eef0da !important;
 }
 
 .card {
@@ -27,7 +27,7 @@
     margin-bottom: 20px;
     margin-top: 20px;
     position: relative;
-    background-color: tan;
+    background-color: #c6d1cb;
     border-radius: 0 6px 6px 6px;
     box-shadow: 4px 4px 7px rgba(0, 0, 0, 0.59);
 
@@ -38,7 +38,7 @@
     width: 50%;
     height: 12px;
     border-radius: 0 20px 0 0;
-    background-color: tan;
+    background-color: #c6d1cb;
     position: absolute;
     top: -12px;
     left: 0px;
@@ -106,6 +106,7 @@
     height: 100%;
     width: 100%;
     z-index: 1000;
+    overflow: auto;
     background-color: rgba(0, 0, 0, .65);
 }
 
@@ -120,12 +121,13 @@
     text-align: center;
     padding: 4px;
     cursor: pointer;
+    max-height: 500px !important;
+    overflow-y: auto;
 }
 
 .modal-content-div:after {
     vertical-align: middle;
-    display: inline-block;
-    height: 100%;
+    overflow-y: auto;
     margin-left: -.05em;
     content: '';
 }
@@ -152,4 +154,41 @@
 
 .modal-title{
     align:center !important;
+}
+
+.dataset {
+    width: 150px;
+    height: 200px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    position: relative;
+    background-color: #728caf;
+    border-radius: 0 6px 6px 6px;
+    box-shadow: 4px 4px 7px rgba(0, 0, 0, 0.59);
+
+}
+
+.dataset-content{
+    padding-left:5%;
+    padding-right:5%;
+    padding-top:5%;
+    color:white;
+}
+.footer {
+    position:absolute;
+    width:100%;
+    height: auto;
+    bottom: 0;
+    color:black;
+}
+
+.hideDeleteButton{
+    display:none !important;
+}
+
+.modalOverflow{
+    max-height: 500px !important;
+    overflow-y:auto !important;
 }

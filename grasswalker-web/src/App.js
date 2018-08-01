@@ -18,7 +18,9 @@ import Login from './components/Login/Login.js';
 import Logout from './components/Logout/Logout.js';
 import Content from './components/Content/Content.js';
 import Lab from './components/Lab/Lab.js';
-
+import FolderHome from './components/Lab/FolderHome.js';
+import DatasetDetail from './components/Lab/DatasetDetail.js';
+import {withRouter} from 'react-router';
 
 class App extends Component {
     constructor(props){
@@ -40,6 +42,8 @@ class App extends Component {
             <Route exact path="/login" component={Login} /> 
             <Route exact path="/logout" component={Logout} /> 
             <Route exact path="/lab" component={Lab} /> 
+            <Route exact path="/lab/:folderid/" component={FolderHome} /> 
+            <Route exact path="/lab/dataset/:datasetid/" render={(props) => <DatasetDetail {...props}/>}  /> 
           </div>
         </div>
       </Router>

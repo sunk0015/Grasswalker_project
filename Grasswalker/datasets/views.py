@@ -1,6 +1,6 @@
 from rest_framework import generics
 from rest_framework.permissions import IsAuthenticated
-from datasets.models import Lab, Dataset, Folder
+from datasets.models import Lab, Dataset, Folder, MethodologyTemplate
 from django.contrib.auth.models import User
 from . import serializers
 from rest_framework.response import Response
@@ -39,10 +39,35 @@ class LabPrivateDatasetList(generics.ListCreateAPIView):
         user = self.request.user
         lab = user.profile.lab
         folders = Folder.objects.filter(owner=lab)
+        if 'folderid' in self.kwargs:
+            folders =  [Folder.objects.get(id=int(self.kwargs['folderid']))]
         queryset = []
         for folder in folders:
             queryset += Dataset.objects.filter(folder=folder)
         return queryset
+
+class LabPrivateDatasetView(generics.RetrieveAPIView):
+    permissions_class=(IsAuthenticated)
+    queryset = Dataset.objects.all()
+    serializer_class = serializers.DatasetModelSerializer
+
+    def get_object(self):
+        if 'datasetid' in self.kwargs:
+            return Dataset.objects.get(id=int(self.kwargs['datasetid']))
+        return None
+
+class LabPrivateDatasetDelete(generics.DestroyAPIView):
+    permissions_class=(IsAuthenticated)
+
+    def destroy(self, request, *args, **kwargs):
+        pk = request.POST['datasetid']
+        instance = Dataset.objects.filter(id=int(pk))
+        self.perform_destroy(instance)
+        return Response(status=status.HTTP_204_NO_CONTENT)
+
+    def perform_destroy(self, instance):
+        instance.delete()
+
 
 
 class LabPrivateFolderList(generics.ListCreateAPIView):
@@ -53,6 +78,9 @@ class LabPrivateFolderList(generics.ListCreateAPIView):
     def get_queryset(self):
         user = self.request.user
         lab = user.profile.lab
+        params = self.request.GET
+        if 'folderid' in self.kwargs:
+            return Folder.objects.filter(owner=lab).filter(parent=int(self.kwargs['folderid']))
         return Folder.objects.filter(owner=lab).filter(parent=None)
 
     def perform_create(self,serializer):
@@ -72,7 +100,7 @@ class LabPrivateProjectList(generics.ListCreateAPIView):
     def perform_create(self,serializer):
         return serializer.save(owner=self.request.user.profile.lab)
 
-class LabPrivateDelete(generics.DestroyAPIView):
+class LabPrivateProjectDelete(generics.DestroyAPIView):
     permissions_class=(IsAuthenticated)
 
     def destroy(self, request, *args, **kwargs):
@@ -82,9 +110,41 @@ class LabPrivateDelete(generics.DestroyAPIView):
         return Response(status=status.HTTP_204_NO_CONTENT)
 
     def perform_destroy(self, instance):
-        print("pk")
         instance.delete()
 
 
+class LabPrivateTemplateList(generics.ListCreateAPIView):
+    permissions_class=(IsAuthenticated)
+    queryset = MethodologyTemplate.objects.all()
+    serializer_class = serializers.MethodologyTemplateSerializer
+
+    def get_queryset(self):
+        user = self.request.user
+        lab = user.profile.lab
+        return MethodologyTemplate.objects.filter(owner=lab)
+
+    def perform_create(self,serializer):
+        return serializer.save(owner=self.request.user.profile.lab)
 
 
+class LabPrivateTemplateDelete(generics.DestroyAPIView):
+    permissions_class=(IsAuthenticated)
+
+    def destroy(self, request, *args, **kwargs):
+        pk = request.POST['templateid']
+        instance = MethodologyTemplate.objects.filter(id=pk)
+        self.perform_destroy(instance)
+        return Response(status=status.HTTP_204_NO_CONTENT)
+
+    def perform_destroy(self, instance):
+        instance.delete()
+
+class LabPrivateTemplateView(generics.RetrieveAPIView):
+    permissions_class=(IsAuthenticated)
+    queryset = MethodologyTemplate.objects.all()
+    serializer_class = serializers.MethodologyTemplateSerializer
+
+    def get_object(self):
+        if 'templateid' in self.kwargs:
+            return MethodologyTemplate.objects.get(id=int(self.kwargs['templateid']))
+        return None

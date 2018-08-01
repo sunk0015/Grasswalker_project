@@ -1,5 +1,5 @@
 from django.contrib.auth.models import User
-from datasets.models import Lab, Folder, Dataset
+from datasets.models import Lab, Folder, Dataset, MethodologyTemplate
 from rest_framework import serializers
 
 
@@ -61,3 +61,11 @@ class DatasetModelSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         print(validated_data)
         return Dataset.objects.create(**validated_data)
+
+class MethodologyTemplateSerializer(serializers.ModelSerializer):
+    owner = LabFilteredPrimaryKeyRelatedField(queryset=Lab.objects,required=False)
+    name = serializers.CharField(max_length=100,allow_blank=False)
+    content = serializers.CharField(max_length=5000,allow_blank=False)
+    class Meta:
+        model = MethodologyTemplate
+        exclude = ()

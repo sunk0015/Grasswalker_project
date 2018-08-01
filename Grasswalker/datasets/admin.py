@@ -1,5 +1,5 @@
 from django.contrib import admin
-from datasets.models import UserProfile, Lab, Folder, Dataset
+from datasets.models import UserProfile, Lab, Folder, Dataset, MethodologyTemplate
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.contrib.auth.models import User
 
@@ -21,3 +21,4 @@ admin.site.register(User, UserAdmin)
 admin.site.register(Lab)
 admin.site.register(Folder)
 admin.site.register(Dataset)
+admin.site.register(MethodologyTemplate)

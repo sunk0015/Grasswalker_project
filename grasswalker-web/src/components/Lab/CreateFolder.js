@@ -15,7 +15,7 @@ class CreateFolderForm extends Component{
       constructor(props) {
         super(props);
         this.createNotification = this.createNotification.bind(this);
-        this.createProject = this.createProject.bind(this);
+        this.createFolder = this.createFolder.bind(this);
       }
     createNotification = (type,msg,title) => {
         if(type=='success'){
@@ -27,14 +27,16 @@ class CreateFolderForm extends Component{
             return NotificationManager.error(msg,title);
         }
       };
-      createProject(event){
+      createFolder(event){
         event.preventDefault();
         var token = window.localStorage.getItem('key');
         var auth = 'Token '+token;
         var server = window.localStorage.getItem('server');
         var data= new FormData();
-        var name = event.target.projectname.value;
-        var description = event.target.projectdescription.value;
+        var parent =  this.props.modalContent.parentId;
+        var name = event.target.foldername.value;
+        var description = event.target.folderdescription.value;
+        data.append('parent',parent);
         data.append('name',name);
         data.append('description',description);
         fetch(server+'/api/folderlist/',{
@@ -74,9 +76,7 @@ class CreateFolderForm extends Component{
                         <div className="container">
                             <div className="row">
                                 <label> Parent: <br/>
-                                    <select name="folderparent">
-                                        {this.props.projects}
-                                    </select>
+                                    <b>{this.props.modalContent.parentName}</b>
                                 </label>
                             </div>
                             <div className="row">

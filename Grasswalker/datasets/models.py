@@ -44,6 +44,14 @@ class Dataset(models.Model):
         return self.title
 
 
+class MethodologyTemplate(models.Model):
+    owner = models.ForeignKey(Lab, on_delete=models.CASCADE,null=True,blank=True)
+    name = models.CharField(max_length=100,null=True,blank=True)
+    content = models.TextField(max_length=5000,null=True,blank=True)
+
+    def __str__(self):
+        return self.name
+
 
 @receiver(post_save, sender=User)
 def user_save(sender, **kwargs):

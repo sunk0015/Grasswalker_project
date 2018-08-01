@@ -14,8 +14,32 @@ import {NotificationContainer, NotificationManager} from 'react-notifications';
 class CreateDatasetForm extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {templates:null,showMethodologyTemplate:false,template:null};
     this.createNotification = this.createNotification.bind(this);
     this.createDataset = this.createDataset.bind(this);
+    this.changeTemplate = this.changeTemplate.bind(this);
+    var token = window.localStorage.getItem('key');
+    var auth = 'Token '+token;
+    var server = window.localStorage.getItem('server');
+    fetch(server+'/api/templatelist/',{
+        method: 'GET',
+        headers: {
+            'Authorization' : auth
+        },
+        })
+        .then(response => response.json())
+        .catch(error => console.error('Error:', error))
+        .then(response => {
+          console.log("templates");
+          console.log(response);
+            var templates = [];
+            for(var i =0;i<response.length;i++){
+                templates.push(<option key={response[i].id} value={response[i].id}> {response[i].name} </option>);
+                console.log(response[i].id);
+            }
+            templates.push(<option key={-1} value={-1}>--------</option>)
+            this.setState({templates:templates});
+        });
   }
 
 createNotification = (type,msg,title) => {
@@ -35,7 +59,7 @@ createDataset(event){
     var auth = 'Token '+token;
     var server = window.localStorage.getItem('server');
     var data= new FormData();
-    var folder =  event.target.foldername.value;
+    var folder =  this.props.modalContent.parentId;
     var title = event.target.datasetTitle.value;
     var abstract = event.target.datasetAbstract.value;
     var methodology = event.target.datasetTitle.value;
@@ -66,10 +90,30 @@ createDataset(event){
             return;
         }
     });
-    }
-  render() {
-        return (
+}
 
+changeTemplate(event){
+    event.preventDefault();
+    var token = window.localStorage.getItem('key');
+    var auth = 'Token '+token;
+    var server = window.localStorage.getItem('server');
+    var templateid = event.target.value;
+    fetch(server+'/api/template/'+templateid+'/',{
+        method: 'GET',
+        headers: {
+            'Authorization' : auth
+        }
+    })
+    .then(response => response.json())
+    .catch(error => console.error('Error:', error))
+    .then(response => {
+        this.setState({showMethodologyTemplate:true,template:<TemplateForm templateName={response.name} contentString={response.content}/>});
+    });
+}
+
+  render() {
+        this.methodologyTemplateClass = this.state.showMethodologyTemplate ? "showTemplate" : "hideTemplate";
+         return (
         <div className={this.props.modalState} tabIndex="-1" role="dialog">
                 <NotificationContainer/>
                   <div className="modal-dialog" role="document">
@@ -84,9 +128,15 @@ createDataset(event){
                       <div className="modal-body">
                             <div className="container">
                                 <div className="row">
-                                    <label> Project: <br/>
-                                        <select id="foldername" name="foldername">
-                                            {this.props.projects}
+                                    <label> Parent Folder/Project: <br/>
+                                        <b>{this.props.modalContent.parentName}</b>
+                                    </label>
+                                </div>
+                                <div className="row">
+                                    <label>Privacy:<br/>
+                                        <select>
+                                            <option>Public</option>
+                                            <option>Private</option>
                                         </select>
                                     </label>
                                 </div>
@@ -106,6 +156,18 @@ createDataset(event){
                                     </label>
                                 </div>
                                 <div className="row">
+                                    <label> Template (optional): <br/>
+                                        <select name="templateid" value={-1} onChange={this.changeTemplate}>
+                                            {this.state.templates}
+                                        </select>
+                                    </label>
+                                </div>
+                                <div className="row">
+                                    <div className={this.methodologyTemplateClass}>
+                                        {this.state.template}
+                                    </div>
+                                </div>
+                                <div className="row">
                                     <label> File: <br/>
                                         <input type="file" name="file"/>
                                     </label>
@@ -121,6 +183,32 @@ createDataset(event){
                   </div>
             </div>
         );
+    }
+}
+
+class TemplateForm extends Component{
+    constructor(props) {
+        super(props);
+        var pairs = props.contentString.split(';');
+        var fields = [];
+        for (var i = 0; i < pairs.length - 1; i++) {
+            //less than length-1 because the last element will be an empty string "" the way split works
+            var keyval = pairs[i].split(":");
+            var key = keyval[0];
+            var val = keyval[1];
+            var element = <div className="row"><label key={i}>{key}: <br/><input type={"text"} name={"methodology"+key} defaultValue={val}></input></label></div>
+            fields.push(element);
+
+        }
+        this.state = {fields:fields};
+    }
+    render(){
+        return(
+            <div className="container">
+                {this.props.templateName}
+                {this.state.fields}
+            </div>
+        )
     }
 }
 
