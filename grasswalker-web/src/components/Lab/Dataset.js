@@ -25,13 +25,20 @@ class Dataset extends Component{
     }
     render(){
         return(
-            <div className="dataset">
-                <div className="dataset-content">
-                    <h5>{this.props.dataset.title}</h5>
-                    <p>{this.props.dataset.abstract}</p>
-                    <Link to={this.to}>View Detail</Link>
-                    <div className="footer">Dataset</div>
-                </div>
+            <div className="dataset-card">
+                  <div class="card-header">
+                    Dataset
+                  </div>
+                  <div class="card-body">
+                    <h5 class="card-title">{this.props.dataset.title}</h5>
+                    <p><b>Date:</b></p>
+                    <p class="card-text">{this.props.dataset.date}</p>
+                    <p><b>Abstract:</b></p>
+                    <p class="card-text">{this.props.dataset.abstract}</p>
+                  </div>
+                  <div class="card-footer text-muted">
+                        <Link to={this.to}>Explore Dataset</Link>
+                  </div>
             </div>
         )
     }

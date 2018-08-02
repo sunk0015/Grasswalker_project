@@ -91,8 +91,8 @@ class CreateProjectForm extends Component{
                                     </div>
                                 </div>
                               <div className="modal-footer">
-                                <button type="submit" className="btn btn-primary">{this.props.modalContent['buttonLabel']}</button>
-                                <button type="button" className="btn btn-secondary" data-dismiss="modal" onClick={this.props.closeModal}>Close</button>
+                                <button type="submit" className="btn btn-primary-gw">{this.props.modalContent['buttonLabel']}</button>
+                                <button type="button" className="btn btn-secondary-gw" data-dismiss="modal" onClick={this.props.closeModal}>Close</button>
                               </div>
                             </form>
                             </div>

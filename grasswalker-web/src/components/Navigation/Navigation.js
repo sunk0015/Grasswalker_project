@@ -21,6 +21,8 @@ import './Navigation.css'
 
 import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 
+import Logo from '../../images/Logo.js';
+
 class Navigation extends Component {
 
   constructor(props){
@@ -41,7 +43,7 @@ class Navigation extends Component {
     return (
         <div className="Navigation"> 
           <nav className="navbar navbar-expand-lg">
-            <a className="navbar-brand" href="/search/">Grasswalker</a>
+            <Logo className="logo"/>
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
               <span className="navbar-toggler-icon"></span>
             </button>

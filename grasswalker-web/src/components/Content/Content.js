@@ -23,7 +23,7 @@ class Content extends Component {
               placeholder="Search for..."
             />
             <span className="input-group-btn">
-              <button className="btn btn-lg btn-primary">Go!</button>
+              <button className="btn btn-lg btn-primary-gw">Go!</button>
             </span>
           </div>
         </div>

@@ -27,12 +27,13 @@ class Project extends Component{
     render(){
         return(
             <div className="folder">
-                <div className="folder-content">
-                    <h5>{this.props.proj.name}</h5>
-                    <p>{this.props.proj.description}</p>
-                    <Link to={this.to}>Explore</Link>
-                    <div className="footer">Folder</div>
-                </div>
+                  <div className="card-header">Folder</div>
+                  <div className="card-body">
+                    <h5 className="card-title">{this.props.proj.name}</h5>
+                    <p><b>Description:</b></p>
+                    <p className="card-text">{this.props.proj.description}</p>
+                  </div>
+                  <div className="card-footer text-muted"><Link className="folder-card-footer" to={this.to}>Explore Folder</Link></div>
             </div>
         )
     }

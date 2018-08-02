@@ -52,9 +52,6 @@ class DatasetDetail extends Component{
 
     }
 
-    showDeleteDatasetModal(){
-    }
-
     render(){
         if(this.state.detailContent){
             return(

@@ -15,7 +15,7 @@ class Dataset extends Component {
               <div className="card-body">
                 <h4 className="card-title">{this.props.name}</h4>
                 <p className="card-text">{this.props.description}</p>
-                <a href={this.props.link} className="btn btn-primary">Dataset Details</a>
+                <a href={this.props.link} className="btn btn-primary-gw">Dataset Details</a>
               </div>
             </div>
         )

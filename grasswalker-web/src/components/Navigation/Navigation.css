@@ -1,25 +1,31 @@
 .navbar {
     height:100px;
-    /*background-color: #4285f4;*/
-    background-color:#41669d;
+    /*background-color:#1A0B59;*/
+    background-color:#e6e6e6;
 }
 
 
 a:link {
-    color: white;
+    color: #000000;
 }
 a:visited {
-    color: white;
+    color: #000000;
 }
 a:hover {
-    color: white;
+    color: #000000;
 }
 a:active {
-    color: white;
+    color: #000000;
 }
 
 .nav-padded{
     margin-right: 5px;
 }
 
+.btn-white{
+    background-color: #46A3A0 !important;
+}
 
+.logo{
+    max-height:100px !important;
+}

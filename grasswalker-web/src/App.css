@@ -8,7 +8,7 @@
 }
 
 .App-header {
-  background-color: #222;
+  background-color: #E6E6E6;
   height: 150px;
   padding: 20px;
   color: white;
@@ -34,5 +34,43 @@
 
 * {
  font-size: 100%;
- font-family: Helvetica;
+ font-family: Helvetica !important;
+}
+
+h1{
+ font-size: 100%;
+ font-family: Playfair Display !important;
+  text-transform: uppercase;
+}
+
+h2, h3, h4, h5, h6 {
+ font-size: 100%;
+ font-family: Raleway Regular !important;
+  text-transform: uppercase;
+}
+
+button {
+ font-size: 100%;
+  font-weight:bold;
+ font-family: Helvetica !important;
+}
+
+p {
+ font-size: 100%;
+ font-family: Lato Regular !important;
+}
+
+.btn-primary-gw{
+  background-color: #1A0B59;
+}
+.btn-secondary-gw{
+  background-color: #46A3A0;
+}
+
+.btn-white{
+    background-color: #46A3A0 !important;
+}
+
+.lead{
+    text-align:center !important;
 }

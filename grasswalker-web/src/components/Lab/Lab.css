@@ -7,11 +7,11 @@
 }
 
 .sidebarLink{
-    color:black !important;
+    color:#000000 !important;
 }
 
 .list-group-item{
-    background-color:#eef0da !important;
+    background-color:#e6e6e6 !important;
 }
 
 .card {
@@ -20,37 +20,51 @@
 }
 
 .folder {
-    width: 250px;
-    height: 200px;
+    width: 300px;
+    height: 300px;
     margin-left: 20px;
     margin-right: 20px;
     margin-bottom: 20px;
     margin-top: 20px;
     position: relative;
-    background-color: #c6d1cb;
+    background-color: #1A0B59;
     border-radius: 0 6px 6px 6px;
     box-shadow: 4px 4px 7px rgba(0, 0, 0, 0.59);
+    color:#e6e6e6;
 
 }
 
 .folder:before {
     content: '';
     width: 50%;
-    height: 12px;
+    height: 20px;
     border-radius: 0 20px 0 0;
-    background-color: #c6d1cb;
+    background-color: #1A0B59;
     position: absolute;
-    top: -12px;
+    top: -20px;
     left: 0px;
+    color:#e6e6e6;
 }
+
 
 .folder-content{
     padding-left:5%;
     padding-right:5%;
     padding-top:5%;
-    color:white;
+    color:#e6e6e6;
 }
-
+a.folder-card-footer:link{
+    color:#efefef;
+}
+a.folder-card-footer:visited{
+    color:#efefef;
+}
+a.folder-card-footer:hover{
+    color:#efefef;
+}
+a.folder-card-footer:active{
+    color:#efefef;
+}
 .parent-wrapper {
   height: 100%;
   width: 100%;
@@ -60,42 +74,6 @@
   flex-wrap: wrap;
 }
 
-.circle {
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  background-color: transparent;
-  position: relative;
-  border: solid #ffffe6;
-    margin-right:5px;
-    margin-left:5px;
-    margin-top:5px;
-    margin-bottom:5px;
-}
-.circle::after {
-  content: " ";
-  position: absolute;
-  display: block;
-  background-color: blue;
-  height: 10px;
-  margin-top: -5px;
-  top: 50%;
-  left: 5px;
-  right: 5px;
-  z-index: 9;
-}
-.circle::before {
-  content: " ";
-  position: absolute;
-  display: block;
-  background-color: blue;
-  width: 10px;
-  margin-left: -5px;
-  left: 50%;
-  top: 5px;
-  bottom: 5px;
-  z-index: 9;
-}
 
 .modal-overlay-div {
     position: fixed;
@@ -121,8 +99,6 @@
     text-align: center;
     padding: 4px;
     cursor: pointer;
-    max-height: 500px !important;
-    overflow-y: auto;
 }
 
 .modal-content-div:after {
@@ -156,32 +132,45 @@
     align:center !important;
 }
 
+.dataset-header{
+    height:50px;
+    width:150px;
+    background-color:#1A0B59
+
+}
+.dataset-footer{
+    height:50px;
+    width:150px;
+    background-color:#1A0B59
+}
+.dataset-content{
+    height:150px;
+    width:150px;
+    color:#000000;
+}
 .dataset {
+    max-width: 150px;
+    max-height: 250px;
     width: 150px;
-    height: 200px;
+    height: 250px;
     margin-left: 20px;
     margin-right: 20px;
     margin-bottom: 20px;
     margin-top: 20px;
     position: relative;
-    background-color: #728caf;
+    background-color: #46A3A0;
     border-radius: 0 6px 6px 6px;
     box-shadow: 4px 4px 7px rgba(0, 0, 0, 0.59);
 
 }
 
-.dataset-content{
-    padding-left:5%;
-    padding-right:5%;
-    padding-top:5%;
-    color:white;
-}
+
 .footer {
     position:absolute;
     width:100%;
     height: auto;
     bottom: 0;
-    color:black;
+    color:#000000;
 }
 
 .hideDeleteButton{
@@ -192,3 +181,14 @@
     max-height: 500px !important;
     overflow-y:auto !important;
 }
+
+.dataset-card{
+    background-color:#46A3A0 !important;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    height:350px;
+    width:200px;
+}
+

@@ -103,7 +103,7 @@ class CreateTemplateForm extends Component{
 
     render(){
         console.log(this.state.fieldCount);
-        this.deleteButtonStatus = this.state.fieldCount < 1?  "hideDeleteButton btn btn-primary":"btn btn-primary";
+        this.deleteButtonStatus = this.state.fieldCount < 1?  "hideDeleteButton btn btn-primary-gw":"btn btn-primary-gw";
         console.log(this.deleteButtonStatus);
         return(
         <div className={this.props.modalState} tabIndex="-1" role="dialog">
@@ -126,14 +126,14 @@ class CreateTemplateForm extends Component{
                             </div>
                             {this.state.fields}
                             <div className="row">
-                                <button type="button" className="btn btn-primary" data-dismiss="modal" onClick={this.addField}>+Field</button>
+                                <button type="button" className="btn btn-primary-gw" data-dismiss="modal" onClick={this.addField}>+Field</button>
                                 <button type="button" className={this.deleteButtonStatus} data-dismiss="modal" onClick={this.deleteField}>-Field</button>
                             </div>
                         </div>
                         </div>
                       <div className="modal-footer">
-                        <button type="submit" className="btn btn-primary">{this.props.modalContent['buttonLabel']}</button>
-                        <button type="button" className="btn btn-secondary" data-dismiss="modal" onClick={this.props.closeModal}>Close</button>
+                        <button type="submit" className="btn btn-primary-gw">{this.props.modalContent['buttonLabel']}</button>
+                        <button type="button" className="btn btn-secondary-gw" data-dismiss="modal" onClick={this.props.closeModal}>Close</button>
                       </div>
                         </form>
                     </div>

@@ -129,7 +129,7 @@ class ExistingProject extends Component {
                             </select>
                         </div>
                         <div className="row">
-                            <input type="submit" className="btn btn-primary" value="Choose Project"/>
+                            <input type="submit" className="btn btn-primary-gw" value="Choose Project"/>
                         </div>
                     </div>
                     </form>
@@ -178,7 +178,7 @@ class NewProject extends Component {
                             </label>
                         </div>
                         <div className="row">
-                            <input type="submit" className="btn btn-primary" value="Submit"/>
+                            <input type="submit" className="btn btn-primary-gw" value="Submit"/>
                         </div>
                     </div>
                 </form>

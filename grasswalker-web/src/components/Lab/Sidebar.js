@@ -76,10 +76,10 @@ class Sidebar extends Component{
             parentId = this.props.parentId;
             parentName = this.props.parentName;
         }
-        this.props.updateModalContent({showModal:true,formDatasetType:"dataset",modalContent:{'name':'Create a new Dataset!','parentId':parentId,'parentName':parentName,'buttonLabel':'Upload Dataset!'}});
+        this.props.updateModalContent({showModal:true,formDatasetType:"dataset",modalContent:{'name':'Create a new Dataset','parentId':parentId,'parentName':parentName,'buttonLabel':'Upload Dataset'}});
     }
     showProjectModal(){
-        this.props.updateModalContent({showModal:true,formDatasetType:"project",modalContent:{'name':'Create a new Project!','buttonLabel':'Create Project!'}});
+        this.props.updateModalContent({showModal:true,formDatasetType:"project",modalContent:{'name':'Create a new Project','buttonLabel':'Create Project'}});
     }
     showFolderModal(){
         var parentId = null;
@@ -88,10 +88,10 @@ class Sidebar extends Component{
             parentId = this.props.parentId;
             parentName = this.props.parentName;
         }
-        this.props.updateModalContent({showModal:true,formDatasetType:"folder",modalContent:{'name':'Create a new Folder!','parentId':parentId,'parentName':parentName,'buttonLabel':'Create Folder!'}});
+        this.props.updateModalContent({showModal:true,formDatasetType:"folder",modalContent:{'name':'Create a new Folder','parentId':parentId,'parentName':parentName,'buttonLabel':'Create Folder'}});
     }
     showTemplateModal(){
-        this.props.updateModalContent({showModal:true,formDatasetType:"template",modalContent:{'name':'Create a new Template!','buttonLabel':'Create Template!'}});
+        this.props.updateModalContent({showModal:true,formDatasetType:"template",modalContent:{'name':'Create a new Template','buttonLabel':'Create Template'}});
     }
     showDeleteProjectModal(){
         var projects = [];
@@ -102,7 +102,7 @@ class Sidebar extends Component{
         for(var i =0;i<projects.length;i++){
             delete_options.push(<option key={projects[i].id} value={projects[i].id}> {projects[i].name} </option>);
         }
-        this.props.updateModalContent({showModal:true,formDatasetType:"deleteproject",modalContent:{'name':'Delete Project','delete_options':delete_options,'buttonLabel':'Delete Project!'}});
+        this.props.updateModalContent({showModal:true,formDatasetType:"deleteproject",modalContent:{'name':'Delete Project','delete_options':delete_options,'buttonLabel':'Delete Project'}});
     }
     showDeleteFolderModal(){
         var projects = [];
@@ -113,7 +113,7 @@ class Sidebar extends Component{
         for(var i =0;i<projects.length;i++){
             delete_options.push(<option key={projects[i].id} value={projects[i].id}> {projects[i].name} </option>);
         }
-        this.props.updateModalContent({showModal:true,formDatasetType:"deletefolder",modalContent:{'name':'Delete Folder','delete_options':delete_options,'buttonLabel':'Delete Folder!'}});
+        this.props.updateModalContent({showModal:true,formDatasetType:"deletefolder",modalContent:{'name':'Delete Folder','delete_options':delete_options,'buttonLabel':'Delete Folder'}});
     }
     showDeleteDatasetModal(){
         var datasets = [];
@@ -124,7 +124,7 @@ class Sidebar extends Component{
         for(var i =0;i<datasets.length;i++){
             delete_options.push(<option key={datasets[i].id} value={datasets[i].id}> {datasets[i].title} </option>);
         }
-        this.props.updateModalContent({showModal:true,formDatasetType:"deletedataset",modalContent:{'name':'Delete Dataset','delete_options':delete_options,'buttonLabel':'Delete Dataset!'}});
+        this.props.updateModalContent({showModal:true,formDatasetType:"deletedataset",modalContent:{'name':'Delete Dataset','delete_options':delete_options,'buttonLabel':'Delete Dataset'}});
     }
     showDeleteTemplateModal(){
 
@@ -141,13 +141,13 @@ class Sidebar extends Component{
                 <div className="">
                     <ul className="list-group">
                       <li className="list-group-item">
-                        <a className="sidebarLink" onClick={this.showProjectModal}>Create Project!</a>
+                        <a className="sidebarLink" onClick={this.showProjectModal}>Create Project</a>
                         </li>
                       <li className="list-group-item">
-                        <a className="sidebarLink" onClick={this.showTemplateModal}>Create Template!</a>
+                        <a className="sidebarLink" onClick={this.showTemplateModal}>Create Template</a>
                         </li>
                         <li className="list-group-item">
-                        <a className="sidebarLink" onClick={this.showDeleteProjectModal}>Delete Project!</a>
+                        <a className="sidebarLink" onClick={this.showDeleteProjectModal}>Delete Project</a>
                         </li>
                     </ul>
                 </div>
@@ -159,19 +159,19 @@ class Sidebar extends Component{
                 <div className="">
                     <ul className="list-group">
                         <li className="list-group-item">
-                        <a className="sidebarLink" onClick={this.showTemplateModal}>Create Template!</a>
+                        <a className="sidebarLink" onClick={this.showTemplateModal}>Create Template</a>
                         </li>
                       <li className="list-group-item">
-                        <a className="sidebarLink" onClick={this.showDatasetModal}>Upload Dataset!</a>
+                        <a className="sidebarLink" onClick={this.showDatasetModal}>Upload Dataset</a>
                         </li>
                       <li className="list-group-item">
-                        <a className="sidebarLink" onClick={this.showFolderModal}>Create Folder!</a>
+                        <a className="sidebarLink" onClick={this.showFolderModal}>Create Folder</a>
                         </li>
                         <li className="list-group-item">
-                        <a className="sidebarLink" onClick={this.showDeleteFolderModal}>Delete Folder!</a>
+                        <a className="sidebarLink" onClick={this.showDeleteFolderModal}>Delete Folder</a>
                         </li>
                         <li className="list-group-item">
-                        <a className="sidebarLink" onClick={this.showDeleteDatasetModal}>Delete Dataset!</a>
+                        <a className="sidebarLink" onClick={this.showDeleteDatasetModal}>Delete Dataset</a>
                         </li>
                     </ul>
                 </div>
