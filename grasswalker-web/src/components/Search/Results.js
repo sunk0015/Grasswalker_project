@@ -29,10 +29,10 @@ class Result extends Component{
         return (
         <div className="card">
           <div className="card-header">
-            {this.props.obj.title}
+            Dataset: {this.props.obj.title}
           </div>
           <div className="card-body">
-            <h4 className="card-title">'Dataset: ' {this.props.obj.title} 'Date: ' {this.props.obj.date}</h4>
+            <p>'Date: ' {this.props.obj.date}</p>
             <p className="card-text">'Abstract: ' {this.props.obj.abstract}</p>
           </div>
         </div>

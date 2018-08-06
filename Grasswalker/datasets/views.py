@@ -5,6 +5,8 @@ from django.contrib.auth.models import User
 from . import serializers
 from rest_framework.response import Response
 from rest_framework import status
+from django.db.models import Q
+from itertools import chain, product
 
 """Generic views accessible across app (i.e. no filters)"""
 class UserList(generics.ListCreateAPIView):
@@ -148,3 +150,29 @@ class LabPrivateTemplateView(generics.RetrieveAPIView):
         if 'templateid' in self.kwargs:
             return MethodologyTemplate.objects.get(id=int(self.kwargs['templateid']))
         return None
+
+class SearchDatasetListView(generics.ListAPIView):
+    query_set = Dataset.objects.all()
+    serializer_class = serializers.DatasetModelSerializer
+
+    def get_queryset(self):
+        if 'query' in self.kwargs:
+            query = self.kwargs['query']
+            datasets = Dataset.objects.filter(Q(title__icontains=query) | Q(abstract__icontains=query))
+            return datasets
+        else:
+            return None
+
+class SearchFolderListView(generics.ListAPIView):
+    query_set = Folder.objects.all()
+    serializer_class = serializers.FolderModelSerializer
+
+    def get_queryset(self):
+        if 'query' in self.kwargs:
+            query = self.kwargs['query']
+            folders = Folder.objects.filter(Q(name__icontains=query) | Q(description__icontains=query))
+            return folders
+        else:
+            return None
+
+

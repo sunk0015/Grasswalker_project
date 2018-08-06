@@ -188,7 +188,14 @@ a.folder-card-footer:active{
     margin-right: 20px;
     margin-bottom: 20px;
     margin-top: 20px;
-    height:350px;
+    height:450px;
     width:200px;
+}
+
+.dataset-detail{
+    padding-top: 10px;
+    border-style: solid;
+    border-width: 5px;
+
 }
 

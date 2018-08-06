@@ -1,0 +1,35 @@
+.search-table{
+    max-width:80%;
+    min-width:80%;
+}
+
+.search-sidebar{
+    max-width:20%;
+    min-width:20%;
+}
+
+.card{
+    margin-left:5% !important;
+    margin-right:5% !important;
+    width:inherit !important;
+    min-height:500px !important;
+}
+
+.search-filter-item{
+    width:inherit !important;
+    padding-left:5% !important;
+    padding-right:5% !important;
+    text-align:left !important;
+    padding-top:5% !important;
+}
+
+.search-filter-row{
+    padding-left:5% !important;
+    padding-right:5% !important;
+    text-align:left !important;
+}
+
+.label{
+    padding-left:5%;
+    display:inline;
+}

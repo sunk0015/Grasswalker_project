@@ -16,6 +16,8 @@ urlpatterns = [
     url(r'^template/(?P<templateid>\d+)/$', views.LabPrivateTemplateView.as_view()),
     url(r'^templatelist/$', views.LabPrivateTemplateList.as_view()),
     url(r'^templatelist/delete/$', views.LabPrivateTemplateDelete.as_view()),
+    url(r'^searchdataset/(?P<query>.*)/$', views.SearchDatasetListView.as_view()),
+    url(r'^searchfolder/(?P<query>.*)/$', views.SearchFolderListView.as_view()),
     url(r'^rest_auth/', include('rest_auth.urls')),
     url(r'^rest_auth/registration/', include('rest_auth.registration.urls')),
 

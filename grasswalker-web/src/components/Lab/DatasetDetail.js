@@ -69,13 +69,13 @@ class DatasetDetail extends Component{
                             </li>
                         </ul>
                     </div>
-                    <div className="col-lg-10 col-md-10 col-sm-5 main">
+                    <div className="col-lg-10 col-md-10 col-sm-5 main dataset-detail">
                         <div className="container">
                             <div className="container">
-                                <div className="row"><h3><b>Date: </b>{this.state.detailContent.date}</h3></div>
-                                <div className="row"><h3><b>Abstract: </b>{this.state.detailContent.abstract}</h3></div>
-                                <div className="row"><h3><b>Methodology:</b>{this.state.detailContent.methodology}</h3></div>
-                                <div className="row"><h3><b>Preview:</b>{this.state.detailContent.file}</h3></div>
+                                <div className="row"><p><b>Date: </b> <br/>{this.state.detailContent.date}</p></div>
+                                <div className="row"><p><b>Abstract: </b> <br/>{this.state.detailContent.abstract}</p></div>
+                                <div className="row"><p><b>Methodology:</b> <br/>{this.state.detailContent.methodology}</p></div>
+                                <div className="row"><p><b>Preview:</b> <br/>{this.state.detailContent.file}</p></div>
                             </div>
                         </div>
                     </div>

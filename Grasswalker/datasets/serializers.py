@@ -69,3 +69,7 @@ class MethodologyTemplateSerializer(serializers.ModelSerializer):
     class Meta:
         model = MethodologyTemplate
         exclude = ()
+
+class GlobalSearchSerializer(serializers.Serializer):
+    datasets = DatasetModelSerializer(many=True)
+    folders = FolderModelSerializer(many=True)
