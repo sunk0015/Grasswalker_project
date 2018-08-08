@@ -34,11 +34,11 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <MetaTags>
-            <title>Grasswalker</title>
-            <meta name="google-site-verification" content="zzlsbPq3HL3DYxoKFhSgHJ_WvpSf7-zfPAzc4gkB6GQ" />
-          </MetaTags>
         <div className="App">
+              <MetaTags>
+                <title>Grasswalker</title>
+                <meta name="google-site-verification" content="zzlsbPq3HL3DYxoKFhSgHJ_WvpSf7-zfPAzc4gkB6GQ" />
+              </MetaTags>
             <div className="page-container">
             <Navigation/> 
             <Route exact path="/" component={Search} /> 
