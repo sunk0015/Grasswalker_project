@@ -20,12 +20,13 @@ import Sidebar from './Sidebar';
 class FolderHome extends Component{
     constructor(props){
         super(props);
+        console.log("Got to the fucking front page");
+        console.log(this.props.location.state);
+        console.log(this.props);
         //state and functions to bind
         var labname = window.localStorage.getItem('labname');
         var foldername = this.props.location.state.foldername;
-        console.log("location state");
-        console.log(this.props.location.state);
-        this.state = {labname:labname,foldername:foldername,child_folders:null, sidebar_child_folders:null,child_datasets:null, showModal:false,modalContent:{},folderid:null};
+        this.state = {labname:labname,foldername:foldername,child_folders:null, sidebar_child_folders:null,child_datasets:null, showModal:false,modalContent:{},folderid:null, showFolder:true};
         this.closeModal = this.closeModal.bind(this);
         this.updateModalContent = this.updateModalContent.bind(this);
 
@@ -82,6 +83,9 @@ class FolderHome extends Component{
     updateModalContent(event){
         this.setState(event);
     }
+
+
+
     render(){
         return(
             <div className="container">
@@ -104,8 +108,9 @@ class FolderHome extends Component{
                     </div>
                 </div>
             </div>
-    )
+        )
     }
+
 }
 
 export default FolderHome;

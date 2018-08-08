@@ -35,7 +35,7 @@ class Folder(models.Model):
 class Dataset(models.Model):
     folder = models.ForeignKey(Folder, on_delete=models.CASCADE)
     title = models.CharField(max_length=100,null=True,blank=True)
-    date = models.DateTimeField(null=True,blank=True)
+    date = models.DateTimeField(auto_now_add=True,null=True,blank=True)
     abstract = models.TextField(max_length=5000,null=True,blank=True)
     methodology = models.TextField(max_length=5000,null=True,blank=True)
     file = models.FileField(upload_to='datasets/test_data/',null=True,blank=True)

@@ -1,6 +1,5 @@
 .navbar {
     height:100px;
-    /*background-color:#1A0B59;*/
     background-color:#e6e6e6;
 }
 
@@ -23,7 +22,7 @@ a:active {
 }
 
 .btn-white{
-    background-color: #46A3A0 !important;
+    background-color: #A7F0E5 !important;
 }
 
 .logo{
