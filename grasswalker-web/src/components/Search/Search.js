@@ -5,6 +5,10 @@ import React, { Component } from 'react';
 import '../../App.css';
 import './Search.css';
 import Results from './Results.js';
+import {
+  Link,
+} from 'react-router-dom';
+
 class Search extends Component {
     constructor(props){
         super();
@@ -131,7 +135,6 @@ class SearchResultTable extends Component{
                             <th className="text-center">Dataset</th>
                             <th className="text-center">Title</th>
                             <th className="text-center">Abstract</th>
-                            <th className="text-center">Folder</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -144,7 +147,6 @@ class SearchResultTable extends Component{
                             <th className="text-center">Folder</th>
                             <th className="text-center">Name</th>
                             <th className="text-center">Description</th>
-                            <th className="text-center">Lab</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -159,28 +161,44 @@ class SearchResultTable extends Component{
 }
 
 class DatasetRow extends Component{
-
+    constructor(props){
+        super(props);
+        this.detailDatasetView = "/lab/dataset/"+props.id+"/";
+        this.to = {
+            'pathname':this.detailDatasetView,
+            'state':{
+                'datasettitle':this.props.title
+            }
+        }
+    }
     render(){
         return(
             <tr>
-              <td className="filterable-cell" scope="col">{this.props.id}</td>
+              <td className="filterable-cell" scope="col"><Link to={this.to}>{this.props.id}</Link></td>
               <td className="filterable-cell" scope="col">{this.props.title}</td>
               <td className="filterable-cell" scope="col">{this.props.abstract}</td>
-              <td className="filterable-cell" scope="col">{this.props.folder}</td>
             </tr>
         )
     }
 }
 
 class FolderRow extends Component{
-
+    constructor(props){
+        super(props);
+        this.folderHome = "/lab/"+props.id+"/";
+        this.to = {
+            'pathname':this.folderHome,
+            'state':{
+                'foldername':this.props.name
+            }
+        }
+    }
     render(){
         return(
             <tr>
-              <td className="filterable-cell" scope="col">{this.props.id}</td>
+              <td className="filterable-cell" scope="col"><Link to={this.to}>{this.props.id}</Link></td>
               <td className="filterable-cell" scope="col">{this.props.name}</td>
               <td className="filterable-cell" scope="col">{this.props.description}</td>
-              <td className="filterable-cell" scope="col">{this.props.owner}</td>
             </tr>
         )
     }
@@ -197,24 +215,6 @@ class SearchFilter extends Component{
                         </div>
                         <form>
                             {this.props.searchItems}
-                            <div className="search-filter-item">
-                            <label>{"Date Range"}</label>
-                                <div className="search-filter-row">
-                                    <div>
-                                        <label>Start</label> <br/>
-                                        <input type="date" id="start" name="trip"
-                                               defaultValue="1800-01-01"
-                                               min="1800-01-01" max="2100-12-31" />
-                                    </div>
-
-                                    <div>
-                                        <label>End</label> <br/>
-                                        <input type="date" id="end" name="trip"
-                                               defaultValue="2100-12-31"
-                                               min="1800-01-01" max="2100-12-31" />
-                                    </div>
-                                </div>
-                            </div>
                         </form>
                     </div>
         )

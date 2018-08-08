@@ -33,7 +33,7 @@ class Project extends Component{
                     <p><b>Description:</b></p>
                     <p className="card-text">{this.props.proj.description}</p>
                   </div>
-                  <div className="card-footer text-muted"><Link className="folder-card-footer" to={this.to}>Explore Folder</Link></div>
+                  <div className="card-footer folder-card-footer text-muted"><Link className="folder-card-link" to={this.to}>Explore Folder</Link></div>
             </div>
         )
     }

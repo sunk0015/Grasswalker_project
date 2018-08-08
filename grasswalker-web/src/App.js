@@ -42,7 +42,7 @@ class App extends Component {
             <Route exact path="/login" component={Login} /> 
             <Route exact path="/logout" component={Logout} /> 
             <Route exact path="/lab" component={Lab} /> 
-            <Route exact path="/lab/:folderid/" component={FolderHome} /> 
+            <Route exact path="/lab/:folderid/" render={(props) => <FolderHome {...props}/>} /> 
             <Route exact path="/lab/dataset/:datasetid/" render={(props) => <DatasetDetail {...props}/>}  /> 
           </div>
         </div>
