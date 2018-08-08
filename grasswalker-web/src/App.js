@@ -10,6 +10,8 @@ import {
   Redirect
 } from 'react-router-dom'
 
+import MetaTags from 'react-meta-tags';
+
 import Search from './components/Search/Search.js';
 import Shared from './components/Shared/Shared.js';
 import Upload from './components/Upload/Upload.js';
@@ -32,6 +34,10 @@ class App extends Component {
   render() {
     return (
       <Router>
+        <MetaTags>
+            <title>Grasswalker</title>
+            <meta name="google-site-verification" content="zzlsbPq3HL3DYxoKFhSgHJ_WvpSf7-zfPAzc4gkB6GQ" />
+          </MetaTags>
         <div className="App">
             <div className="page-container">
             <Navigation/> 
