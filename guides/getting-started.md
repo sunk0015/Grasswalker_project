@@ -58,5 +58,5 @@ Templates in Grasswalker are basically key value pairs for common meta deta fiel
 ![Create Template](/guides/pics/Create_Template.png)
 A template can be created as seen above by providing mandatory fields and default values (placeholders can be given as ***).
 
-After saving the template. Subsequent dataset creations can use the template to populat fields.
+After saving the template. Subsequent dataset creations can use the template to populate fields.
 ![Create Dataset Template](/guides/pics/Create_Dataset_Template.png)
