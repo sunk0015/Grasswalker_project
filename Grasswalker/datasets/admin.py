@@ -36,7 +36,7 @@ class LabAdmin(ModelAdmin):
         qs = super().get_queryset(request)
         if request.user.is_superuser:
             return qs
-        return qs.filter(owner=request.user.profile.lab)
+        return qs.filter(owner=request.user)
 
 class MethodologyTemplateAdmin(ModelAdmin):
     def get_queryset(self, request):
