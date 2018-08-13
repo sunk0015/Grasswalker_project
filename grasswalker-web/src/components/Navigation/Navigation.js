@@ -112,9 +112,6 @@ class SettingsDropdown extends Component{
                               <DropdownToggle caret color={this.state.settingsColor}>{this.state.loggedIn}</DropdownToggle>
                               <DropdownMenu>
                                 <DropdownItem>
-                                  <Link to="/shared/">My Account</Link> 
-                                </DropdownItem>
-                                <DropdownItem>
                                   <Link to="/login/">Login</Link> 
                                 </DropdownItem>
                                 <DropdownItem>
@@ -122,9 +119,6 @@ class SettingsDropdown extends Component{
                                 </DropdownItem>
                                 <DropdownItem>
                                   <Link to="/logout/">Log Out</Link> 
-                                </DropdownItem>
-                                <DropdownItem>
-                                  <Link to="/search/">Help</Link> 
                                 </DropdownItem>
                               </DropdownMenu>
                             </Dropdown>

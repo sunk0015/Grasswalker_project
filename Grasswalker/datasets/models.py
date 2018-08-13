@@ -33,6 +33,7 @@ class Folder(models.Model):
             return "unnamed"
 
 class Dataset(models.Model):
+    owner = models.ForeignKey(Lab, on_delete=models.CASCADE,null=True,blank=True)
     folder = models.ForeignKey(Folder, on_delete=models.CASCADE)
     title = models.CharField(max_length=100,null=True,blank=True)
     date = models.DateTimeField(auto_now_add=True,null=True,blank=True)

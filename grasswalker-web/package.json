@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "bootstrap": "^4.1.1",
+    "dropbox": "^4.0.9",
     "mdbreact": "^4.5.0",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",

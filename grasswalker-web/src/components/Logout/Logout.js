@@ -37,7 +37,7 @@ class Logout extends Component{
             });
             window.setTimeout(function() {
                 window.location.href = "/login/";
-             }, 5000);
+             }, 0);
         });
 
     }
