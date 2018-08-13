@@ -1,5 +1,6 @@
 # Graswalker Quick-Start
-This is a brief "how-to" guide targeted for Lab users to use Grasswalker's functionality. If you are a Lab admin with elevated priviliges note that you have access to all below functionality plus additional admin capabilities seen here (link to admin guide).
+This is a brief "how-to" guide targeted for Lab users to use Grasswalker's functionality. 
+Note: Lab admins have access to all functionality described below in addition to those specified in <admin_guide>.
 
 ## High Level Overview
 * Grasswalker at its core is an academic data sharing resource that allows independent labs to 
@@ -13,6 +14,7 @@ This is a brief "how-to" guide targeted for Lab users to use Grasswalker's funct
     5. Templates, which can be created and linked to datasets to ensure that the dataset is appropriately annotated.
     
 ## Login
-Assuming an account has been created for you. You may login to Grasswalker by simply clicking Login from the right hand side dropdown menu and entering credentials.
+Assuming an account has been created for you. You may login to Grasswalker by simply clicking Login from the right hand side dropdown menu and entering credentials in the login form.
+![Login image](/guides/pics/Login.png)
 
-
+Hello world
