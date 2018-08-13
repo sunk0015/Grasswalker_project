@@ -114,9 +114,11 @@ class SettingsDropdown extends Component{
                                 <DropdownItem>
                                   <Link to="/login/">Login</Link> 
                                 </DropdownItem>
+      {/*
                                 <DropdownItem>
                                   <Link to="/shared/">Create Account</Link> 
                                 </DropdownItem>
+      */}
                                 <DropdownItem>
                                   <Link to="/logout/">Log Out</Link> 
                                 </DropdownItem>
