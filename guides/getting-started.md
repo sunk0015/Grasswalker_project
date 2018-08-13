@@ -16,5 +16,19 @@ Note: Lab admins have access to all functionality described below in addition to
 ## Login
 Assuming an account has been created for you. You may login to Grasswalker by simply clicking Login from the right hand side dropdown menu and entering credentials in the login form.
 ![Login image](/guides/pics/Login.png)
+Note: A success notification will pop up if login successful and navigate to Lab home page. Otherwise a failure notification will popup and redirect to login.
 
-Hello world
+## Folders
+In Grasswalker, Folders are the top level unit of organization. A folder may contain various datasets or subfolders. Subfolders are linked to their parents via a "parent" relationship. Top level folders (i.e. folders with no parents) are called projects.
+Note that Folders are owned by the lab and not individual users.
+
+### Create Folder
+To create a Folder simply click the link and enter a name and description.
+![Create Folder](/guides/pics/Create_Folder.png)
+
+### Delete Folder
+To delete a Folder, hit delete and select the folder to delete. (Note that all subfolders and datasets contained in the folder will be deleted.)
+
+## Datasets
+Datasets are the base units that represent actual research data. Datasets contain some meta data and the corresponding file (any type permissible .csv, .doc, etc).
+Like folders, datasets are owned by the lab and not individual users. 
