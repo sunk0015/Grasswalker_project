@@ -21,6 +21,7 @@ Note: A success notification will pop up if login successful and navigate to Lab
 ## Folders
 In Grasswalker, Folders are the top level unit of organization. A folder may contain various datasets or subfolders. Subfolders are linked to their parents via a "parent" relationship. Top level folders (i.e. folders with no parents) are called projects.
 Note that Folders are owned by the lab and not individual users.
+![Project Home](/guides/pics/Folder_Home.png)
 
 ### Create Folder
 To create a Folder simply click the link and enter a name and description.
@@ -29,6 +30,18 @@ To create a Folder simply click the link and enter a name and description.
 ### Delete Folder
 To delete a Folder, hit delete and select the folder to delete. (Note that all subfolders and datasets contained in the folder will be deleted.)
 
+### Explore Folder
+To explore the contents of a Folder, simply click the Link at the bottom of Folder icon. This will take you to the folder home.
+
 ## Datasets
 Datasets are the base units that represent actual research data. Datasets contain some meta data and the corresponding file (any type permissible .csv, .doc, etc).
-Like folders, datasets are owned by the lab and not individual users. 
+Like folders, datasets are owned by the lab and not individual users. To ensure consistent annotation of datasets Grasswalker offers flexible custom methodology templates
+discussed in the next section.
+
+### Create Dataset
+
+### Delete Dataset
+To delete a dataset, simply hit delete and choose the appropriate dataset.
+
+### Explore Dataset
+To explore the contents of a dataset, hit explore. Note that the detail view page for datasets contains a download option. 
