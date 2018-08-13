@@ -6,14 +6,28 @@ import '../../App.css';
 import {
   Link
 } from 'react-router-dom'
+import {NotificationContainer, NotificationManager} from 'react-notifications';
+
 
 class Login extends Component{
 
     constructor(props){
         super(props);
         this.submitLogin = this.submitLogin.bind(this);
+        this.createNotifcation = this.createNotification.bind(this);
 
     }
+
+    createNotification = (type,msg,title) => {
+        if(type=='success'){
+            console.log("succes");
+            return NotificationManager.success(msg,title);
+        }
+        else{
+            console.log("error");
+            return NotificationManager.error(msg,title);
+        }
+  }
 
     submitLogin(event){
         event.preventDefault();
@@ -29,12 +43,16 @@ class Login extends Component{
             method: 'POST',
             body: data
         })
-        .then(response => response.json())
-        .catch(error => {
-            console.log("Error logging in");
-            window.setTimeout(function() {
-                window.location.href = "/logout/";
-             }, 1000);
+        .then(response => {
+            if(response.status!=400){
+                this.createNotification('success','Logged in as : '+username,'Success');
+                return response.json();
+
+            }
+            else{
+                this.createNotification('error','Login failed for '+username+'. Please verify credentials and try again.','Error');
+                throw new Error("Login failed");
+            }
         })
         .then(response => {
             console.log(response);
@@ -44,7 +62,7 @@ class Login extends Component{
                 console.log(this.state);
             });
             window.setTimeout(function() {
-                window.location.href = "/search/";
+                window.location.href = "/lab/";
             }, 1000);
             var token = window.localStorage.getItem('key');
             var auth = 'Token '+token;
@@ -60,6 +78,11 @@ class Login extends Component{
             .then(response => {
                 window.localStorage.setItem('labname',response[0].name);
             });
+        })
+        .catch(error => {
+            window.setTimeout(function() {
+                    window.location.href = "/logout/";
+            }, 3000);
         });
 
     }
@@ -67,6 +90,7 @@ class Login extends Component{
     render() {
         return(
             <div className="container col-lg-3 col-md-4 col-sm-6">
+            <NotificationContainer/>
             <form id='loginForm' onSubmit={this.submitLogin}>
               <div className="form-group">
                 <label>Username</label>
