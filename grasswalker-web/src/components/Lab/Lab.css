@@ -178,7 +178,7 @@ a.folder-card-link:active{
 }
 
 .modalOverflow{
-    max-height: 500px !important;
+    max-height: 750px !important;
     overflow-y:auto !important;
 }
 
