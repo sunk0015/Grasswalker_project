@@ -31,14 +31,19 @@ To create a Folder simply click the link and enter a name and description.
 To delete a Folder, hit delete and select the folder to delete. (Note that all subfolders and datasets contained in the folder will be deleted.)
 
 ### Explore Folder
-To explore the contents of a Folder, simply click the Link at the bottom of Folder icon. This will take you to the folder home.
+To explore the contents of a Folder, simply click the Link at the bottom of Folder icon. This will take you to the folder home. Here you will have more options to create folders, datasets and/or delete contents.
 
 ## Datasets
 Datasets are the base units that represent actual research data. Datasets contain some meta data and the corresponding file (any type permissible .csv, .doc, etc).
-Like folders, datasets are owned by the lab and not individual users. To ensure consistent annotation of datasets Grasswalker offers flexible custom methodology templates
+Like folders, datasets are owned by the lab and not individual users. To ensure consistent annotation of datasets, Grasswalker offers flexible custom methodology templates
 discussed in the next section.
 
 ### Create Dataset
+Creating a dataset entails uploading a file and populating some meta data. 
+By default every dataset requires a title and an abstract and a raw file to be uploaded. 
+The Methodology can either be input raw from the Methodology field or specified by a premade template.
+![Create Dataset without Tempalte](/guides/pics/Create_Dataset_NoTemplate.png)
+
 
 ### Delete Dataset
 To delete a dataset, simply hit delete and choose the appropriate dataset.
