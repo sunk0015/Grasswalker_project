@@ -50,3 +50,13 @@ To delete a dataset, simply hit delete and choose the appropriate dataset.
 
 ### Explore Dataset
 To explore the contents of a dataset, hit explore. Note that the detail view page for datasets contains a download option. 
+
+## Templates
+Templates in Grasswalker are basically key value pairs for common meta deta fields. They can be used to populate metadata that is common to a particular type of dataset.
+
+### Create Templates
+![Create Template](/guides/pics/Create_Template.png)
+A template can be created as seen above by providing mandatory fields and default values (placeholders can be given as ***).
+
+After saving the template. Subsequent dataset creations can use the template to populat fields.
+![Create Dataset Template](/guides/pics/Create_Dataset_Template.png)
