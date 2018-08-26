@@ -7,7 +7,7 @@ Note: Lab admins have access to all functionality described below in addition to
     1. Organize and structure lab research data.  
     2. Potentially share their data with other labs in the Grasswalker network.
 * Labs are the highest level of organization in the Grasswalker network. Each Lab contains:
-    1. Lab admin, who is the owner lab and has access to the admin console and the main user interace. Has some elevated priviliges discussed in detail in the admin guide.
+    1. Lab admin, who is the owner of the lab and has access to the admin console and the main user interace. Has some elevated priviliges discussed in detail in the admin guide.
     2. Users, who are members of their owning lab. They have access to Grasswalker through the main user interface.
     3. Folders, which are the base units of organizations. Folders may be nested in other folders. Top level folders are referred to as Projects.
     4. Datasets, which contain the actual data to be stored. Datasets must be in a folder.
@@ -58,5 +58,5 @@ Templates in Grasswalker are basically key value pairs for common meta deta fiel
 ![Create Template](/guides/pics/Create_Template.png)
 A template can be created as seen above by providing mandatory fields and default values (placeholders can be given as ***).
 
-After saving the template. Subsequent dataset creations can use the template to populat fields.
+After saving the template. Subsequent dataset creations can use the template to populate fields.
 ![Create Dataset Template](/guides/pics/Create_Dataset_Template.png)
