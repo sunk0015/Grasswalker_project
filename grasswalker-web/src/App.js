@@ -17,7 +17,8 @@ import Shared from './components/Shared/Shared.js';
 import Upload from './components/Upload/Upload.js';
 import Navigation from './components/Navigation/Navigation.js'
 import Login from './components/Login/Login.js';
-import Logout from './components/Logout/Logout.js';
+import Logout from './components/Login/Logout.js';
+import CreateAccount from './components/Login/CreateAccount.js';
 import Content from './components/Content/Content.js';
 import Lab from './components/Lab/Lab.js';
 import FolderHome from './components/Lab/FolderHome.js';
@@ -27,7 +28,7 @@ import {withRouter} from 'react-router';
 class App extends Component {
     constructor(props){
         super(props);
-        window.localStorage.setItem('server','http://ec2-52-38-220-200.us-west-2.compute.amazonaws.com:8000');
+        window.localStorage.setItem('server','http://localhost:8000');
     }
 
   render() {
@@ -46,9 +47,12 @@ class App extends Component {
             <Route exact path="/upload" component={Upload} /> 
             <Route exact path="/login" component={Login} /> 
             <Route exact path="/logout" component={Logout} /> 
+            <Route exact path="/create" component={CreateAccount} /> 
             <Route exact path="/lab" component={Lab} /> 
-            <Route exact path="/lab/:folderid/" render={(props) => <FolderHome {...props}/>} /> 
+            <Route exact path="/lab/folder/:folderid/" render={(props) => <FolderHome {...props}/>} /> 
+            <Route exact path="/lab/folder/delete/:folderid/" render={(props) => <FolderHome {...props}/>} /> 
             <Route exact path="/lab/dataset/:datasetid/" render={(props) => <DatasetDetail {...props}/>}  /> 
+            <Route exact path="/lab/dataset/delete/:datasetid/" render={(props) => <DatasetDetail {...props}/>}  /> 
           </div>
         </div>
       </Router>

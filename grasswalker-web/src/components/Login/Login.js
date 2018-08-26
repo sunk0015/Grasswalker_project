@@ -3,6 +3,7 @@
  */
 import React, { Component } from 'react';
 import '../../App.css';
+import './Login.css';
 import {
   Link
 } from 'react-router-dom'
@@ -90,6 +91,7 @@ class Login extends Component{
     render() {
         return(
             <div className="container col-lg-3 col-md-4 col-sm-6">
+            <h2>Login</h2>
             <NotificationContainer/>
             <form id='loginForm' onSubmit={this.submitLogin}>
               <div className="form-group">

@@ -185,7 +185,7 @@ class DatasetRow extends Component{
 class FolderRow extends Component{
     constructor(props){
         super(props);
-        this.folderHome = "/lab/"+props.id+"/";
+        this.folderHome = "/lab/folder/"+props.id+"/";
         this.to = {
             'pathname':this.folderHome,
             'state':{

@@ -51,7 +51,7 @@ createNotification = (type,msg,title) => {
         console.log("error");
         return NotificationManager.error(msg,title);
     }
-  };
+}
 
 createDataset(event){
     event.preventDefault();

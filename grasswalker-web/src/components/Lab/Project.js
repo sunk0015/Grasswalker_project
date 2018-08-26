@@ -15,7 +15,7 @@ import {NotificationContainer, NotificationManager} from 'react-notifications';
 class Project extends Component{
     constructor(props){
         super(props);
-        this.detailView = "/lab/"+props.proj.id+"/";
+        this.detailView = "/lab/folder/"+props.proj.id+"/";
         this.to = {
             'pathname':this.detailView,
             'state':{

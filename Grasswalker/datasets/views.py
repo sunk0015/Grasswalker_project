@@ -1,5 +1,5 @@
 from rest_framework import generics
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import IsAuthenticated, AllowAny
 from datasets.models import Lab, Dataset, Folder, MethodologyTemplate
 from django.contrib.auth.models import User
 from . import serializers
@@ -7,6 +7,8 @@ from rest_framework.response import Response
 from rest_framework import status
 from django.db.models import Q
 from itertools import chain, product
+from rest_framework.views import APIView
+
 
 """Generic views accessible across app (i.e. no filters)"""
 class UserList(generics.ListCreateAPIView):
@@ -57,6 +59,22 @@ class LabPrivateDatasetView(generics.RetrieveAPIView):
         if 'datasetid' in self.kwargs:
             return Dataset.objects.get(id=int(self.kwargs['datasetid']))
         return None
+
+
+class LabPrivateDatasetDownloadView(APIView):
+    permissions_class=(IsAuthenticated)
+
+    def post(self,request):
+        datasetid = request.POST['datasetid']
+        print(datasetid)
+        dataset = Dataset.objects.get(id=int(datasetid))
+        filename = dataset.file.name.split('/')[-1]
+        response = Response(dataset.file, content_type='text/plain')
+        response['Content-Disposition'] = 'attachment; filename=%s' % filename
+        print("FILE DOWNLOAD RESPONSE")
+        print(response['Content-Disposition'])
+        return response
+
 
 class LabPrivateDatasetDelete(generics.DestroyAPIView):
     permissions_class=(IsAuthenticated)
@@ -175,4 +193,13 @@ class SearchFolderListView(generics.ListAPIView):
         else:
             return None
 
+class LabKeyView(generics.ListAPIView):
+    permissions_class=(AllowAny)
+    queryset = Lab.objects.all()
+    serializer_class = serializers.LabModelSerializer
 
+    def get_queryset(self):
+        print(self.kwargs)
+        if 'labkey' in self.kwargs:
+            return Lab.objects.filter(labkey=self.kwargs['labkey'])
+        return Lab.objects.none()
