@@ -20,7 +20,6 @@ import Sidebar from './Sidebar';
 class FolderHome extends Component{
     constructor(props){
         super(props);
-        console.log("Got to the fucking front page");
         console.log(this.props.location.state);
         console.log(this.props);
         //state and functions to bind
