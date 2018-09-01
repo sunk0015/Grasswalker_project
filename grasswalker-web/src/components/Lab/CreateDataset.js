@@ -306,7 +306,7 @@ class CreateDatasetForm extends React.Component {
                                     <div className={this.state.dropboxShow}>
                                             <div className="row">
                                                 <DropboxChooser
-                                                    appKey={'zgx0z57ovobicis'}
+                                                    appKey={'kwaxy35eb83eo4i'}
                                                     success={files => this.dropboxSuccess(files)}
                                                     cancel={() => this.dropboxCancel()}
                                                     multiselect={true}
