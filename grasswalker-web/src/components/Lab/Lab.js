@@ -15,6 +15,7 @@ import {NotificationContainer, NotificationManager} from 'react-notifications';
 import Project from './Project';
 import Modal from './Modal';
 import Sidebar from './Sidebar';
+import GenericModal from './GenericModal';
 
 class Lab extends Component {
     constructor(props){

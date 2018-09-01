@@ -178,11 +178,11 @@ a.folder-card-link:active{
 }
 
 .modalOverflow{
-    max-height: 750px !important;
     overflow-y:auto !important;
 }
 
 .dataset-card{
+    position:relative;
     background-color:#A7F0E5 !important;
     margin-left: 20px;
     margin-right: 20px;
@@ -202,7 +202,7 @@ a.folder-card-link:active{
     position:absolute;
     width:200px !important;
     height:50px !important;
-    bottom:20px !important;
+    bottom:0px !important;
     background-color:inherit important!;
 }
 
@@ -217,4 +217,20 @@ a.folder-card-link:active{
 
 .card-header{
     background-color: inherit !important;
+}
+
+.hide-div{
+    display:none !important;
+}
+
+.show-div{
+    display:block !important;
+}
+
+.modal-body{
+    overflow-y:auto !important;
+}
+
+.dataset-fileupload{
+    position:relative !important;
 }

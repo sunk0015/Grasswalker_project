@@ -76,7 +76,7 @@ class Sidebar extends Component{
             parentId = this.props.parentId;
             parentName = this.props.parentName;
         }
-        this.props.updateModalContent({showModal:true,formDatasetType:"dataset",modalContent:{'name':'Create a new Dataset','parentId':parentId,'parentName':parentName,'buttonLabel':'Upload Dataset'}});
+        this.props.updateModalContent({showModal:true,formDatasetType:"dataset",modalContent:{'name':'Upload new Datasets','parentId':parentId,'parentName':parentName,'buttonLabel':'Upload Datasets'}});
     }
     showProjectModal(){
         this.props.updateModalContent({showModal:true,formDatasetType:"project",modalContent:{'name':'Create a new Project','buttonLabel':'Create Project'}});
@@ -162,7 +162,7 @@ class Sidebar extends Component{
                         <a className="sidebarLink" onClick={this.showTemplateModal}>Create Template</a>
                         </li>
                       <li className="list-group-item">
-                        <a className="sidebarLink" onClick={this.showDatasetModal}>Upload Dataset</a>
+                        <a className="sidebarLink" onClick={this.showDatasetModal}>Create Dataset</a>
                         </li>
                       <li className="list-group-item">
                         <a className="sidebarLink" onClick={this.showFolderModal}>Create Folder</a>

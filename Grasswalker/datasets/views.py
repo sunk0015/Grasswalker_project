@@ -39,6 +39,16 @@ class LabPrivateDatasetList(generics.ListCreateAPIView):
     queryset = Dataset.objects.all()
     serializer_class = serializers.DatasetModelSerializer
 
+
+    def get_serializer(self,*args,**kwargs):
+        if "data" in kwargs:
+            data = kwargs["data"]
+            # check if many is required
+            if isinstance(data,list):
+                kwargs["many"] = True
+        return super(LabPrivateDatasetList,self).get_serializer(*args,**kwargs)
+
+
     def get_queryset(self):
         user = self.request.user
         lab = user.profile.lab
@@ -49,6 +59,9 @@ class LabPrivateDatasetList(generics.ListCreateAPIView):
         for folder in folders:
             queryset += Dataset.objects.filter(folder=folder)
         return queryset
+
+
+
 
 class LabPrivateDatasetView(generics.RetrieveAPIView):
     permissions_class=(IsAuthenticated)
@@ -72,7 +85,6 @@ class LabPrivateDatasetDownloadView(APIView):
         response = Response(dataset.file, content_type='text/plain')
         response['Content-Disposition'] = 'attachment; filename=%s' % filename
         print("FILE DOWNLOAD RESPONSE")
-        print(response['Content-Disposition'])
         return response
 
 
