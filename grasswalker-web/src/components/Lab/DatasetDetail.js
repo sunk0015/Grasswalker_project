@@ -85,7 +85,7 @@ class DatasetDetail extends Component{
         .then(response => response.blob())
         .then(blob => {
             console.log(blob);
-            fileDownload(blob,title+'.csv');
+            fileDownload(blob,title);
             this.createNotification('success','Downloaded '+title,'Success');
         });
     }
