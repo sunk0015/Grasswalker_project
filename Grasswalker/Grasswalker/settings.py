@@ -180,3 +180,5 @@ SITE_ID = 1
 
 
 AUTH_PROFILE_MODULE = 'datasets.UserProfile'
+
+MEDIA_URL = '/media/'
