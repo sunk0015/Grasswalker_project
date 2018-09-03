@@ -310,7 +310,7 @@ class CreateDatasetForm extends React.Component {
                                                     success={files => this.dropboxSuccess(files)}
                                                     cancel={() => this.dropboxCancel()}
                                                     multiselect={true}
-                                                    extensions={['.csv']}
+                                                    extensions={['.csv','.xlsl','.doc','.txt']}
                                                     linkType="direct" >
                                                     <div className="dropbox-dropin-btn dropbox-dropin-default">
                                                         <span className="dropin-btn-status"></span>Choose from Dropbox
