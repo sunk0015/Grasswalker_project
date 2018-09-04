@@ -184,5 +184,3 @@ AUTH_PROFILE_MODULE = 'datasets.UserProfile'
 ENV_PATH = os.path.abspath(os.path.dirname(__file__))
 MEDIA_ROOT = os.path.join(ENV_PATH, 'media/')
 MEDIA_URL = "media/"
-STATIC_ROOT = os.path.join(ENV_PATH, 'static/')
-STATIC_URL = "static/"
