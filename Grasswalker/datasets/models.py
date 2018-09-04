@@ -40,7 +40,7 @@ class Dataset(models.Model):
     date = models.DateTimeField(auto_now_add=True,null=True,blank=True)
     abstract = models.TextField(max_length=5000,null=True,blank=True)
     methodology = models.TextField(max_length=5000,null=True,blank=True)
-    file = models.FileField(upload_to='datasets/test_data/',null=True,blank=True)
+    file = models.FileField(upload_to=upload_to='datasets/%Y/%m/%d',null=True,blank=True)
 
     def __str__(self):
         return self.title
