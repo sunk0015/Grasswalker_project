@@ -82,9 +82,8 @@ class LabPrivateDatasetDownloadView(APIView):
         print(datasetid)
         dataset = Dataset.objects.get(id=int(datasetid))
         filename = dataset.file.name
-        response = Response(dataset.file, content_type='text/plain')
+        response = Response(dataset.file)
         response['Content-Disposition'] = 'attachment; filename=%s' % filename
-        print("FILE DOWNLOAD RESPONSE")
         return response
 
 
