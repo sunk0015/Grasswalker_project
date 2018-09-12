@@ -8,7 +8,11 @@ from rest_framework import status
 from django.db.models import Q
 from itertools import chain, product
 from rest_framework.views import APIView
-
+from django.conf import settings
+from wsgiref.util import FileWrapper
+import mimetypes
+import os
+from django.http import FileResponse
 
 """Generic views accessible across app (i.e. no filters)"""
 class UserList(generics.ListCreateAPIView):
@@ -76,16 +80,13 @@ class LabPrivateDatasetView(generics.RetrieveAPIView):
 
 class LabPrivateDatasetDownloadView(APIView):
     permissions_class=(IsAuthenticated)
-
     def post(self,request):
         datasetid = request.POST['datasetid']
         print(datasetid)
         dataset = Dataset.objects.get(id=int(datasetid))
         filename = dataset.file.name
-        response = Response(dataset.file)
-        response['Content-Disposition'] = 'attachment; filename=%s' % filename
-        return response
-
+        if os.path.exists(dataset.file.path):
+                return FileResponse(dataset.file.open())
 
 class LabPrivateDatasetDelete(generics.DestroyAPIView):
     permissions_class=(IsAuthenticated)

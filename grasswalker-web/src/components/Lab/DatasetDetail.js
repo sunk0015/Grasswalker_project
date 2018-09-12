@@ -84,11 +84,11 @@ class DatasetDetail extends Component{
         })
         .then(response => response.blob())
         .then(blob => {
-            console.log(blob);
-            fileDownload(blob,title);
-            this.createNotification('success','Downloaded '+title,'Success');
+            var file = new File([blob],title);
+            fileDownload(file,title);
         });
     }
+
 
     render(){
         if(this.state.detailContent){
