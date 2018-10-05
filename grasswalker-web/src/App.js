@@ -46,7 +46,6 @@ class App extends Component {
                 <div className="content-container">
                     <Route exact path="/" component={Home} /> 
                     <Route exact path="/home" component={Home} /> 
-                    <Route exact path="/search" component={Search} /> 
                     <Route exact path="/shared" component={Shared} /> 
                     <Route exact path="/upload" component={Upload} /> 
                     <Route exact path="/login" component={Login} /> 
