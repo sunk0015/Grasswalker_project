@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import Nav from './images/Nav.js';
 
 // import route Components here
 import {
@@ -36,25 +37,25 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-              <MetaTags>
-                <title>Grasswalker</title>
-                <meta name="google-site-verification" content="zzlsbPq3HL3DYxoKFhSgHJ_WvpSf7-zfPAzc4gkB6GQ" />
-              </MetaTags>
             <div className="page-container">
-            <Navigation/> 
-            <Route exact path="/" component={Search} /> 
-            <Route exact path="/search" component={Search} /> 
-            <Route exact path="/shared" component={Shared} /> 
-            <Route exact path="/upload" component={Upload} /> 
-            <Route exact path="/login" component={Login} /> 
-            <Route exact path="/logout" component={Logout} /> 
-            <Route exact path="/create" component={CreateAccount} /> 
-            <Route exact path="/lab" component={Lab} /> 
-            <Route exact path="/lab/folder/:folderid/" render={(props) => <FolderHome {...props}/>} /> 
-            <Route exact path="/lab/folder/delete/:folderid/" render={(props) => <FolderHome {...props}/>} /> 
-            <Route exact path="/lab/dataset/:datasetid/" render={(props) => <DatasetDetail {...props}/>}  /> 
-            <Route exact path="/lab/dataset/delete/:datasetid/" render={(props) => <DatasetDetail {...props}/>}  /> 
-          </div>
+                <div className="grasswalker-header center">
+                    <h3 className="grasswalker-header-text">Grasswalker</h3>
+                </div>
+                <Nav/>
+                <Route exact path="/" component={Home} /> 
+                <Route exact path="/home" component={Home} /> 
+                <Route exact path="/search" component={Search} /> 
+                <Route exact path="/shared" component={Shared} /> 
+                <Route exact path="/upload" component={Upload} /> 
+                <Route exact path="/login" component={Login} /> 
+                <Route exact path="/logout" component={Logout} /> 
+                <Route exact path="/create" component={CreateAccount} /> 
+                <Route exact path="/lab" component={Lab} /> 
+                <Route exact path="/lab/folder/:folderid/" render={(props) => <FolderHome {...props}/>} /> 
+                <Route exact path="/lab/folder/delete/:folderid/" render={(props) => <FolderHome {...props}/>} /> 
+                <Route exact path="/lab/dataset/:datasetid/" render={(props) => <DatasetDetail {...props}/>}  /> 
+                <Route exact path="/lab/dataset/delete/:datasetid/" render={(props) => <DatasetDetail {...props}/>}  /> 
+            </div>
         </div>
       </Router>
     );
@@ -64,18 +65,14 @@ class App extends Component {
 class Home extends Component {
     render (){
         return (
-            <div className="jumbotron">
-                <h1>Grasswalker</h1> 
-              <p className="lead">
-                Grasswalker is an effort to collaborate data between academic research labs.
-                Try the search feature below!
-              </p> 
-              <div className="input-group">
-                  <input type="text" className="form-control" placeholder="Search for..." /> 
-                <span className="input-group-btn">
-                    <button className="btn btn-lg btn-primary-gw">Go!</button> 
-                </span>  
-              </div> 
+            <div className="container">
+                <div className="home-banner">
+                    <div className="home-banner-text">Welcome to Grasswalker</div>
+                    <div>{"We let the world's most brilliant minds work together."}</div>
+                    <br/>
+                    <div className="home-learn-more">{"Learn More"}</div>
+                </div>
+
             </div>
         )
     }
