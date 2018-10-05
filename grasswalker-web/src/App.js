@@ -29,8 +29,8 @@ import {withRouter} from 'react-router';
 class App extends Component {
     constructor(props){
         super(props);
-        window.localStorage.setItem('server','http://localhost:8000');
-        // window.localStorage.setItem('server','http://grasswalker.org:8000');
+        //window.localStorage.setItem('server','http://localhost:8000');
+        window.localStorage.setItem('server','http://grasswalker.org:8000');
     }
 
   render() {
