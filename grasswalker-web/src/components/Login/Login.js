@@ -108,7 +108,7 @@ class Login extends Component{
                   Remember me
                 </label>
               </div>
-              <button type="submit" className="btn btn-primary-gw">Login!</button>
+              <button type="submit" className="btn btn-primary-gw">Login</button>
             </form>
             </div>
 

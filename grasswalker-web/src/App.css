@@ -1,7 +1,7 @@
 .App {
     text-align: center;
     background-color: #f1f1f1;
-    height:1000px;
+    height:100% !important;
     width:100%;
     padding: 10px;
 }
@@ -32,6 +32,7 @@
 }
 
 .page-container{
+    height:100% !important;
   margin-left:40px;
   margin-right:40px;
 }
@@ -80,6 +81,10 @@ p {
 
 .grasswalker-header{
     height:100px;
+    width:80%;
+}
+
+.grasswalker-content{
     width:80%;
 }
 

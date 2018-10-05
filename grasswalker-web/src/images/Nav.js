@@ -21,7 +21,7 @@ class Nav extends Component{
                 <div className="nav-img">
                     <div className="row">
                         <div className="nav-item nav-item-border center nav-item-text">About</div>
-                        <div className="nav-item nav-item-border center nav-item-text">Exchange</div>
+                        <div className="nav-item nav-item-border center nav-item-text"><a href={"/search"}>Exchange</a></div>
                         <div className="nav-item nav-item-border center nav-item-text"><a href={"/lab"}>My Lab</a></div>
                         <div className="nav-item center nav-item-text">Contact Us</div>
                     </div>

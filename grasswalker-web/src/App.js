@@ -22,6 +22,7 @@ import Logout from './components/Login/Logout.js';
 import CreateAccount from './components/Login/CreateAccount.js';
 import Content from './components/Content/Content.js';
 import Lab from './components/Lab/Lab.js';
+import LabHome from './components/Lab/LabHome.js';
 import FolderHome from './components/Lab/FolderHome.js';
 import DatasetDetail from './components/Lab/DatasetDetail.js';
 import {withRouter} from 'react-router';
@@ -29,32 +30,35 @@ import {withRouter} from 'react-router';
 class App extends Component {
     constructor(props){
         super(props);
-        //window.localStorage.setItem('server','http://localhost:8000');
-        window.localStorage.setItem('server','http://grasswalker.org:8000');
+        window.localStorage.setItem('server','http://localhost:8000');
+        // window.localStorage.setItem('server','http://grasswalker.org:8000');
     }
 
   render() {
     return (
       <Router>
-        <div className="App">
+        <div className="App content-container">
             <div className="page-container">
                 <div className="grasswalker-header center">
                     <h3 className="grasswalker-header-text">Grasswalker</h3>
                 </div>
                 <Nav/>
-                <Route exact path="/" component={Home} /> 
-                <Route exact path="/home" component={Home} /> 
-                <Route exact path="/search" component={Search} /> 
-                <Route exact path="/shared" component={Shared} /> 
-                <Route exact path="/upload" component={Upload} /> 
-                <Route exact path="/login" component={Login} /> 
-                <Route exact path="/logout" component={Logout} /> 
-                <Route exact path="/create" component={CreateAccount} /> 
-                <Route exact path="/lab" component={Lab} /> 
-                <Route exact path="/lab/folder/:folderid/" render={(props) => <FolderHome {...props}/>} /> 
-                <Route exact path="/lab/folder/delete/:folderid/" render={(props) => <FolderHome {...props}/>} /> 
-                <Route exact path="/lab/dataset/:datasetid/" render={(props) => <DatasetDetail {...props}/>}  /> 
-                <Route exact path="/lab/dataset/delete/:datasetid/" render={(props) => <DatasetDetail {...props}/>}  /> 
+                <div className="content-container">
+                    <Route exact path="/" component={Home} /> 
+                    <Route exact path="/home" component={Home} /> 
+                    <Route exact path="/search" component={Search} /> 
+                    <Route exact path="/shared" component={Shared} /> 
+                    <Route exact path="/upload" component={Upload} /> 
+                    <Route exact path="/login" component={Login} /> 
+                    <Route exact path="/logout" component={Logout} /> 
+                    <Route exact path="/create" component={CreateAccount} /> 
+                    <Route exact path="/lab" component={LabHome} /> 
+                    <Route exact path="/lab/folder/:folderid/" render={(props) => <FolderHome {...props}/>} /> 
+                    <Route exact path="/lab/folder/delete/:folderid/" render={(props) => <FolderHome {...props}/>} /> 
+                    <Route exact path="/lab/dataset/:datasetid/" render={(props) => <DatasetDetail {...props}/>}  /> 
+                    <Route exact path="/lab/dataset/delete/:datasetid/" render={(props) => <DatasetDetail {...props}/>}  />
+                </div>
+ 
             </div>
         </div>
       </Router>

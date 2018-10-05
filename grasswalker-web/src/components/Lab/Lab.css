@@ -234,3 +234,79 @@ a.folder-card-link:active{
 .dataset-fileupload{
     position:relative !important;
 }
+
+.labhome-container{
+    height: 100% !important;
+}
+
+.labhome-sidebar{
+    float:left;
+    background-color: #dfdfd7 !important;
+    width:20%;
+    height:600px;
+    padding:20px;
+}
+
+.labhome-sidebar-title{
+    text-align:left;
+    font-weight: bold;
+    font-family: "Playfair Display";
+}
+
+.labhome-sidebar-option{
+    margin-top:5px;
+    text-align:left;
+    font-size: 0.9em;
+    font-family: "Myriad Pro";
+}
+
+.labhome-content{
+    overflow: hidden;
+    background-color: inherit !important;
+    padding-left: 20px;
+    height:600px;
+}
+
+.labhome-content-title{
+    border-bottom: 2px solid black !important;
+    border-spacing: 10px !important;
+    text-align:left;
+    font-family: "Myriad Pro";
+}
+
+.labhome-projectlist{
+    height: 100%;
+    overflow-y: scroll;
+}
+
+.labhome-projectdetail{
+    height: 100px;
+    width: 100%;
+    background-color:#d4e3e1;
+    margin-bottom:10px;
+    border: 1px solid #56727c;
+}
+
+.projectcontent-project-title{
+    padding-top: 10px;
+    padding-left: 10px;
+    text-align:left;
+    font-size: 1em;
+    font-family: "Myriad Pro";
+    font-weight:bold;
+}
+
+.projectcontent-project-text{
+    padding-left: 10px;
+    text-align:left;
+    font-family: "Myriad Pro";
+}
+
+#linkcolor{
+    color: black !important;
+}
+
+.content-container{
+    height:100% !important;
+}
+
