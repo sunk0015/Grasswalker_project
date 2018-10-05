@@ -37,7 +37,7 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <div className="App content-container">
+        <div className="App">
             <div className="page-container">
                 <div className="grasswalker-header center">
                     <h3 className="grasswalker-header-text">Grasswalker</h3>
