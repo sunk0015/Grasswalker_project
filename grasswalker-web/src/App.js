@@ -38,7 +38,7 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <div className="App content-container">
+        <div className="App">
             <div className="page-container">
                 <div className="grasswalker-header center">
                     <h3 className="grasswalker-header-text">Grasswalker</h3>
@@ -48,7 +48,6 @@ class App extends Component {
                     <Route exact path="/" component={Home} /> 
                     <Route exact path="/home" component={Home} /> 
                     <Route exact path="/about" component={About} /> 
-                    <Route exact path="/search" component={Search} /> 
                     <Route exact path="/shared" component={Shared} /> 
                     <Route exact path="/upload" component={Upload} /> 
                     <Route exact path="/login" component={Login} /> 

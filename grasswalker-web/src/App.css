@@ -1,7 +1,7 @@
 .App {
     text-align: center;
     background-color: #f1f1f1;
-    height:100% !important;
+    height:1000px !important;
     width:100%;
     padding: 10px;
 }
@@ -32,7 +32,6 @@
 }
 
 .page-container{
-    height:100% !important;
   margin-left:40px;
   margin-right:40px;
 }
