@@ -13,6 +13,7 @@ import {
 
 import MetaTags from 'react-meta-tags';
 
+import About from './components/About/About.js';
 import Search from './components/Search/Search.js';
 import Shared from './components/Shared/Shared.js';
 import Upload from './components/Upload/Upload.js';
@@ -46,6 +47,7 @@ class App extends Component {
                 <div className="content-container">
                     <Route exact path="/" component={Home} /> 
                     <Route exact path="/home" component={Home} /> 
+                    <Route exact path="/about" component={About} /> 
                     <Route exact path="/search" component={Search} /> 
                     <Route exact path="/shared" component={Shared} /> 
                     <Route exact path="/upload" component={Upload} /> 

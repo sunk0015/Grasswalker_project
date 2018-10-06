@@ -1,0 +1,10 @@
+.about-container{
+    padding-left: 10px;
+    height:100% !important;
+}
+
+.about-container-text{
+    font-weight: bold;
+    text-align:left;
+    font-family: "Myriad Pro";
+}
