@@ -105,15 +105,28 @@ p {
     padding: 10px;
 }
 
+.nav-img-container{
+    width:100%;
+    margin: 0 auto;
+}
+
 .nav-img{
     height:80px;
     background-image: url('nav.png');
+    width:100% !important;
     padding: 20px;
 }
 
-.nav-item{
+.nav-item-center{
     display:inline;
-    width:25%;
+    width:20%;
+    height:100%;
+    padding-left:10px;
+}
+
+.nav-item-end{
+    display:inline;
+    width:30%;
     height:100%;
     padding-left:10px;
 }

@@ -139,15 +139,15 @@ class Sidebar extends Component{
             //lab home (top level projects are displayed) i.e. no parent to the page
             return(
                 <div className="">
-                    <ul className="list-group">
-                      <li className="list-group-item">
-                        <a className="sidebarLink" onClick={this.showProjectModal}>Create Project</a>
+                    <ul className="">
+                      <li className="">
+                        <a className="" onClick={this.showProjectModal}>Create Project</a>
                         </li>
-                      <li className="list-group-item">
-                        <a className="sidebarLink" onClick={this.showTemplateModal}>Create Template</a>
+                      <li className="">
+                        <a className="" onClick={this.showTemplateModal}>Create Template</a>
                         </li>
-                        <li className="list-group-item">
-                        <a className="sidebarLink" onClick={this.showDeleteProjectModal}>Delete Project</a>
+                        <li className="">
+                        <a className="" onClick={this.showDeleteProjectModal}>Delete Project</a>
                         </li>
                     </ul>
                 </div>
@@ -157,21 +157,21 @@ class Sidebar extends Component{
             //home page is a Folder (or Project) i.e. has a parent or top level folder
             return(
                 <div className="">
-                    <ul className="list-group">
-                        <li className="list-group-item">
-                        <a className="sidebarLink" onClick={this.showTemplateModal}>Create Template</a>
+                    <ul className="">
+                        <li className="">
+                        <a className="" onClick={this.showTemplateModal}>Create Template</a>
                         </li>
-                      <li className="list-group-item">
-                        <a className="sidebarLink" onClick={this.showDatasetModal}>Create Dataset</a>
+                      <li className="">
+                        <a className="" onClick={this.showDatasetModal}>Create Dataset</a>
                         </li>
-                      <li className="list-group-item">
-                        <a className="sidebarLink" onClick={this.showFolderModal}>Create Folder</a>
+                      <li className="">
+                        <a className="" onClick={this.showFolderModal}>Create Folder</a>
                         </li>
-                        <li className="list-group-item">
-                        <a className="sidebarLink" onClick={this.showDeleteFolderModal}>Delete Folder</a>
+                        <li className="">
+                        <a className="" onClick={this.showDeleteFolderModal}>Delete Folder</a>
                         </li>
-                        <li className="list-group-item">
-                        <a className="sidebarLink" onClick={this.showDeleteDatasetModal}>Delete Dataset</a>
+                        <li className="">
+                        <a className="" onClick={this.showDeleteDatasetModal}>Delete Dataset</a>
                         </li>
                     </ul>
                 </div>

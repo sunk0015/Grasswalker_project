@@ -12,10 +12,11 @@ import CreateProjectForm from './CreateProject';
 import CreateFolderForm from './CreateFolder';
 import DeleteProjectForm from './DeleteProjectForm';
 import {NotificationContainer, NotificationManager} from 'react-notifications';
-import Project from './Project';
+import ProjectContent from './ProjectContent';
 import Modal from './Modal';
 import Sidebar from './Sidebar';
 import GenericModal from './GenericModal';
+
 
 class Lab extends Component {
     constructor(props){
@@ -44,7 +45,7 @@ class Lab extends Component {
             var projects = [];
             var labname = window.localStorage.getItem('labname');
             for(var i=0;i<response.length;i++){
-                projects.push(<Project key={response[i].id} proj={response[i]}/>);
+                projects.push(<ProjectContent key={response[i].id} proj={response[i]}/>);
             }
             this.setState({labname:labname,projects:projects,sidebar_projects_data:response},function(){
                 console.log(this.state);

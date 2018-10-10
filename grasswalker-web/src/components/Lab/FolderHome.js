@@ -12,9 +12,9 @@ import CreateProjectForm from './CreateProject';
 import CreateFolderForm from './CreateFolder';
 import DeleteProjectForm from './DeleteProjectForm';
 import {NotificationContainer, NotificationManager} from 'react-notifications';
-import Project from './Project';
+import ProjectContent from './ProjectContent';
 import Modal from './Modal';
-import Dataset from './Dataset';
+import DatasetContent from './DatasetContent';
 import Sidebar from './Sidebar';
 
 class FolderHome extends Component{
@@ -49,7 +49,7 @@ class FolderHome extends Component{
             var labname = window.localStorage.getItem('labname');
             console.log(labname);
             for(var i=0;i<response.length;i++){
-                subfolders.push(<Project key={response[i].id} proj={response[i]}/>);
+                subfolders.push(<ProjectContent key={response[i].id} proj={response[i]}/>);
             }
             this.setState({child_folders:subfolders,sidebar_child_folders:response,folderid:folderid},function(){
                 console.log(this.state);
@@ -64,10 +64,12 @@ class FolderHome extends Component{
         .then(response => response.json())
         .catch(error => console.error('Error:', error))
         .then(response => {
+            console.log("ABCDEFG");
+            console.log(response);
             var subdatasets = [];
             for(var i=0;i<response.length;i++){
                 console.log(response[i]);
-                subdatasets.push(<Dataset key={response[i].id} dataset={response[i]}/>);
+                subdatasets.push(<DatasetContent key={response[i].id} dataset={response[i]}/>);
             }
             this.setState({child_datasets:subdatasets,sidebar_child_datasets:response},function(){
                 console.log(this.state);
@@ -87,22 +89,29 @@ class FolderHome extends Component{
 
     render(){
         return(
-            <div className="container">
-                <h1>Folder: {this.state.foldername} {this.state.folderId}</h1>
+            <div className="content-container">
                 <NotificationContainer/>
-                <div className="row">
-                    <div className="col-lg-2 col-md-2 col-sm-1 sidebar">
-                        <Sidebar isLabHome={false} parentId={this.props.match.params.folderid} parentName={this.props.location.state.foldername} child_folders={this.state.child_folders} child_datasets={this.state.child_datasets} updateModalContent={this.updateModalContent}/>
+                <div className="labhome-container">
+                    <div className="labhome-sidebar">
+                        <div className="labhome-sidebar-title">Folder: {this.state.foldername} {this.state.folderId}</div>
+                        <div className="labhome-sidebar-options">
+                            <div className="labhome-sidebar-option">Projects</div>
+                            <div className="labhome-sidebar-option">Search</div>
+                            <div className="labhome-sidebar-option">Data Standards</div>
+                            <div className="labhome-sidebar-option">Folder Actions
+                                     <Sidebar isLabHome={false} parentId={this.props.match.params.folderid} parentName={this.props.location.state.foldername} child_folders={this.state.child_folders} child_datasets={this.state.child_datasets} updateModalContent={this.updateModalContent}/>
+                            </div>
+                        </div>
                     </div>
-                    <div className="col-lg-10 col-md-10 col-sm-5 main">
-                        <div className="container">
-                            <Modal showModal={this.state.showModal} type={this.state.formDatasetType} projects={this.state.modalContent.projects} modalContent={this.state.modalContent} closeModal={this.closeModal}/>
-                            <div className="parent">
-                                        {this.state.child_folders}
-                            </div>
-                            <div className="parent">
-                                        {this.state.child_datasets}
-                            </div>
+                    <div className="labhome-content">
+                        <Modal showModal={this.state.showModal} type={this.state.formDatasetType} modalContent={this.state.modalContent} closeModal={this.closeModal}/>
+                        <h3 className="labhome-content-title">Folders</h3>
+                        <div className="folderhome-projectlist">
+                            {this.state.child_folders}
+                        </div>
+                        <h3 className="labhome-content-title">Datasets</h3>
+                        <div className="folderhome-datasetlist">
+                            {this.state.child_datasets}
                         </div>
                     </div>
                 </div>

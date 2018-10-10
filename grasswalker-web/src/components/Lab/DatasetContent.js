@@ -1,5 +1,5 @@
 /**
- * Created by Sai on 10/5/18.
+ * Created by Sai on 10/10/18.
  */
 import React, { Component } from 'react';
 import '../../App.css';
@@ -14,26 +14,25 @@ import DeleteProjectForm from './DeleteProjectForm';
 import {NotificationContainer, NotificationManager} from 'react-notifications';
 
 
-class ProjectContent extends Component{
+class DatasetContent extends Component{
     constructor(props){
         super(props);
-        this.detailView = "/lab/folder/"+props.proj.id+"/";
+        this.detailDatasetView = "/lab/dataset/"+props.dataset.id+"/";
         this.to = {
-            'pathname':this.detailView,
+            'pathname':this.detailDatasetView,
             'state':{
-                'foldername':this.props.proj.name
+                'datasettitle':this.props.dataset.title
             }
         }
     }
-
     render(){
         return(
             <div className="labhome-detail">
-                    <div className="projectcontent-title"><Link id="linkcolor" to={this.to}>{this.props.proj.name}</Link></div>
-                    <div className="projectcontent-text">{this.props.proj.description}</div>
+                    <div className="projectcontent-title"><Link id="linkcolor" to={this.to}>{this.props.dataset.title}</Link></div>
+                    <div className="projectcontent-text">{this.props.dataset.date}</div>
+                    <div className="projectcontent-text">{this.props.dataset.abstract}</div>
             </div>
         )
     }
 }
-
-export default ProjectContent;
+export default DatasetContent;

@@ -78,6 +78,9 @@ class LabHome extends Component {
                             <div className="labhome-sidebar-option">Projects</div>
                             <div className="labhome-sidebar-option">Search</div>
                             <div className="labhome-sidebar-option">Data Standards</div>
+                            <div className="labhome-sidebar-option">Lab Actions
+                                <Sidebar isLabHome={true} projects={this.state.sidebar_projects_data} updateModalContent={this.updateModalContent}/>
+                            </div>
                         </div>
                     </div>
                     <div className="labhome-content">

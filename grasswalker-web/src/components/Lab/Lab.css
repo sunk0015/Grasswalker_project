@@ -279,7 +279,12 @@ a.folder-card-link:active{
     overflow-y: scroll;
 }
 
-.labhome-projectdetail{
+.labhome-datasetlist{
+    height: 100%;
+    overflow-y: scroll;
+}
+
+.labhome-detail{
     height: 100px;
     width: 100%;
     background-color:#d4e3e1;
@@ -287,7 +292,7 @@ a.folder-card-link:active{
     border: 1px solid #56727c;
 }
 
-.projectcontent-project-title{
+.projectcontent-title{
     padding-top: 10px;
     padding-left: 10px;
     text-align:left;
@@ -296,7 +301,7 @@ a.folder-card-link:active{
     font-weight:bold;
 }
 
-.projectcontent-project-text{
+.projectcontent-text{
     padding-left: 10px;
     text-align:left;
     font-family: "Myriad Pro";
@@ -310,3 +315,11 @@ a.folder-card-link:active{
     height:100% !important;
 }
 
+
+.folderhome-projectlist{
+    overflow-y: auto;
+}
+
+.folderhome-datasetlist{
+    overflow-y: auto;
+}
