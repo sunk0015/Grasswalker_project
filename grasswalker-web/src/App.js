@@ -40,6 +40,15 @@ class App extends Component {
       <Router>
         <div className="App">
             <div className="page-container">
+                <div className="login-row login-right row">
+                    <div>
+                        <a className="login" href="/login">Login</a>
+                    </div>
+                    /
+                    <div>
+                        <a className="login" href="/logout">Logout</a>
+                    </div>
+                </div>
                 <div className="grasswalker-header center">
                     <h3 className="grasswalker-header-text">Grasswalker</h3>
                 </div>

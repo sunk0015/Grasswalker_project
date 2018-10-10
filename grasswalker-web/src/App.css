@@ -166,3 +166,29 @@ a:hover {
 a:active {
     color: #ffffff !important;
 }
+
+.login-row{
+    height:10px;
+}
+
+.login-right{
+    float:right;
+    padding-right:2%;
+}
+
+a.login:link {
+    font-family: "Playfair Display" !important;
+    color: #000000 !important;
+}
+a.login:visited {
+    font-family: "Playfair Display" !important;
+    color: #000000 !important;
+}
+a.login:hover {
+    font-family: "Playfair Display" !important;
+    color: #000000 !important;
+}
+a.login:active {
+    font-family: "Playfair Display" !important;
+    color: #000000 !important;
+}
